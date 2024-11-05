@@ -566,22 +566,26 @@
             break;
 
         case "get-started":
-            div.innerHTML = `
-                <div class="main-container">
-                    ${topBarHtml}
-                    <div class="get-started-container">
-                        <h1>${page.content.title}</h1>
-                        <div class="start-button-container" onclick="nextPage()">
-                            ${page.content.buttonText}
-                            <img class="touch-icon" src="data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8 12H12M12 12H16M12 12V8M12 12V16' stroke='%23000000' stroke-width='2'/%3E%3C/svg%3E">
-                        </div>
-                    </div>
-                    <div class="navigation">
-                        <button class="nav-button single-nav-button" onclick="nextPage()">Start →</button>
+    div.innerHTML = `
+        <div class="main-container">
+            ${topBarHtml}
+            <div class="get-started-container">
+                <h1>${page.content.title}</h1>
+                <div class="options-wrapper get-started">
+                    <div class="options">
+                        <button class="start-button-container" onclick="nextPage()">
+                            <span>${page.content.buttonText}</span>
+                            <img src="./tap.svg" alt="Touch icon">
+                        </button>
                     </div>
                 </div>
-            `;
-            break;
+            </div>
+            <div class="navigation">
+                <button class="nav-button" onclick="nextPage()">Start →</button>
+            </div>
+        </div>
+    `;
+    break;
 
         case "instruction":
             div.innerHTML = `
@@ -850,19 +854,102 @@ function nextPage() {
 		}
 	}
 }
+function createBallotSummaryElement() {
+    const div = document.createElement('div');
+    div.className = 'ballot-summary-page';
+    div.style.display = 'none';
+    
+    div.innerHTML = `
+        <div class="ballot-grid">
+            <div class="ballot-column ballot-info">
+                <div class="black-line"></div>
+                <div class="ballot-year">2024</div>
+                <div class="ballot-date">November 5</div>
+                <div class="county-seal">
+                    <img src="california.png" alt="County Seal" />
+                </div>
+                <div class="ballot-county">County of Los Angeles</div>
+                <div class="black-line"></div>
+                <div class="ballot-qr">
+                    <img src="qr.svg" alt="QR Code" />
+                </div>
+            </div>
+            
+            <div class="selections-container">
+                <div class="main-title">General Election</div>
+                <div class="selections-columns">
+                    <div class="ballot-column selections-column">
+                        <div class="selections-list" id="column1"></div>
+                    </div>
+                    
+                    <div class="ballot-column selections-column">
+                        <div class="selections-list" id="column2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    return div;
+}
+// Function to update the ballot summary with selections
+function updateBallotSummary() {
+    const selectedContests = Object.values(selections)
+        .sort((a, b) => a.contestNumber - b.contestNumber);
+    
+    const column1 = document.getElementById('column1');
+    const column2 = document.getElementById('column2');
+    column1.innerHTML = '';
+    column2.innerHTML = '';
+    
+    // Calculate the midpoint for two columns
+    const midpoint = Math.ceil(selectedContests.length / 2);
+    
+    // Fill first column
+    selectedContests.slice(0, midpoint).forEach(contest => {
+        const contestElement = document.createElement('div');
+        contestElement.className = 'ballot-contest';
+        contestElement.innerHTML = `
+            <div class="contest-title">${contest.title}</div>
+            <div class="contest-selection">${contest.selection}</div>
+        `;
+        column1.appendChild(contestElement);
+    });
+    
+    // Fill second column
+    selectedContests.slice(midpoint).forEach(contest => {
+        const contestElement = document.createElement('div');
+        contestElement.className = 'ballot-contest';
+        contestElement.innerHTML = `
+            <div class="contest-title">${contest.title}</div>
+            <div class="contest-selection">${contest.selection}</div>
+        `;
+        column2.appendChild(contestElement);
+    });
+}
 
-// Add submitBallot function
+// Modify the existing submitBallot function
 function submitBallot() {
-	// Add timestamp to the review page
-	const reviewPage = document.querySelector('.review-page');
-	const timestamp = new Date().toLocaleString();
-	reviewPage.setAttribute('data-print-time', timestamp);
-
-	// Add a small delay to ensure styles are applied
-	setTimeout(() => {
-		// Trigger print dialog
-		window.print();
-	}, 100);
+    // Hide the review page
+    document.querySelector('.review-page').style.display = 'none';
+    
+    // Show and update the ballot summary
+    const ballotSummary = document.querySelector('.ballot-summary-page') || 
+        document.body.appendChild(createBallotSummaryElement());
+    ballotSummary.style.display = 'block';
+    updateBallotSummary();
+    
+    // Add timestamp
+    const timestamp = new Date().toLocaleString();
+    ballotSummary.setAttribute('data-print-time', timestamp);
+    
+    // Trigger print
+    setTimeout(() => {
+        window.print();
+        // Hide ballot summary and show review page after printing
+        ballotSummary.style.display = 'none';
+        document.querySelector('.review-page').style.display = 'block';
+    }, 100);
 }
 		// Initialize pages
 		allPages.forEach((page, index) => {

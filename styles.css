@@ -389,69 +389,6 @@ body {
 
 
 
-@media print {
-  /* Hide all pages by default */
-  .page-container {
-    display: none !important;
-  }
-
-  /* Only show the review page when printing */
-  .page-container:last-child {
-    display: block !important;
-    position: static;
-    transform: none;
-    height: auto;
-    width: auto;
-  }
-
-  /* Hide navigation elements and buttons */
-  .navigation,
-  .top-bar,
-  .change-selection-button {
-    display: none !important;
-  }
-
-  /* Ensure white background and black text */
-  body {
-    background: white;
-    color: black;
-  }
-
-  .review-page {
-    padding: 20px;
-  }
-
-  /* Add page breaks where needed */
-  .review-item {
-    page-break-inside: avoid;
-  }
-
-  /* Ensure all text is visible */
-  .review-selection {
-    color: black !important;
-  }
-
-  /* Add a header for the printed ballot */
-  .review-page::before {
-    content: "Official Ballot Record";
-    display: block;
-    text-align: center;
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 2rem;
-  }
-
-  /* Add footer with timestamp */
-  .review-page::after {
-    content: "Printed: " attr(data-print-time);
-    display: block;
-    text-align: center;
-    margin-top: 2rem;
-    font-size: 0.8rem;
-    color: #666;
-  }
-}
-
 
 /* Update existing body style */
 body {
@@ -916,4 +853,330 @@ body {
 
 .top-bar-button:hover {
     color: #333;
+}
+
+/* Update options wrapper padding */
+.options-wrapper {
+    flex: 1;
+    overflow-y: auto;
+    margin: 0;
+    padding: 0.5rem;  /* Reduced from 1rem */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Update options padding */
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 0;  /* Removed padding */
+}
+
+/* Update option button styles */
+.option-button {
+    background: white;
+    border: 1px solid #000;
+    padding: 1rem;
+    text-align: left;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    min-height: 3.5rem;
+    width: 100%;
+    position: relative;  /* Added for tick positioning */
+}
+
+/* Add tick mark for selected buttons */
+.option-button.selected::before {
+    content: "✓";
+    position: absolute;
+    left: 1rem;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* Adjust padding for selected buttons to accommodate tick */
+.option-button.selected {
+    background: #000;
+    color: #fff;
+    padding-left: 3rem;  /* Increased left padding to make room for tick */
+}
+
+/* Update write-in option to match spacing */
+.write-in-option {
+    background: white;
+    border: 1px dotted #000;
+    padding: 1rem;
+    text-align: left;
+    font-size: 1rem;
+    min-height: 3.5rem;
+    pointer-events: none;
+    color: #666;
+    width: 100%;
+}
+
+/* Presidential ticket specific adjustments */
+.presidential-ticket {
+    padding-left: 3rem;  /* Match the selected state padding */
+}
+
+.presidential-ticket.selected {
+    padding-left: 3rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Get Started page styles */
+.get-started-container {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    text-align: left;
+    flex-grow: 1;
+}
+
+/* Get Started page navigation */
+.get-started-container + .navigation {
+    display: flex;
+    justify-content: flex-end; /* Align single button to right */
+    padding: 1rem;
+    background: #fff;
+    margin-top: auto;
+}
+
+
+.get-started-container h1 {
+    font-size: 1.4rem;
+    font-weight: bold;
+    padding: 1rem;
+    border-bottom: 1px solid #ddd;
+    margin-top: 2rem; /* Add space above the title */
+}
+
+.options-wrapper.get-started {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+}
+
+.start-button-container {
+    background: white;
+    border: 1px solid #000;
+    padding: 2rem;  /* Extra padding */
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;  /* Space between text and icon */
+    transition: all 0.2s;
+    margin: 0;
+    width: 100%;  /* Full width */
+}
+
+.start-button-container:hover {
+    background: #f0f0f0;
+}
+
+.start-button-container.selected {
+    background: #000;
+    color: #fff;
+    padding-left: 3rem;
+    position: relative;
+}
+
+.start-button-container.selected::before {
+    content: "✓";
+    position: absolute;
+    left: 1rem;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* Settings icon styles */
+.start-button-container img {
+    width: 96px;
+    height: 96px;
+}
+
+/* Add to your existing styles.css */
+
+
+
+
+
+
+
+
+
+
+
+
+
+.ballot-summary-page {
+    padding: 0.25in; /* Reduced from 0.5in */
+    background: white;
+    width: 8.5in;
+    min-height: 11in;
+    margin: 0 auto;
+    font-family: 'Ambiguity Thrift', sans-serif;
+    box-sizing: border-box;
+}
+
+.ballot-grid {
+    display: flex;
+    gap: 0.25in; /* Reduced from 0.5in */
+    height: 100%;
+    max-width: 100%;
+}
+
+.ballot-info {
+    flex: 0 0 1.75in; /* Slightly reduced from 2in */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.black-line {
+    width: 100%;
+    height: 2px;
+    background: black;
+    margin: 0.5rem 0; /* Reduced from 1rem */
+}
+
+.ballot-year {
+    font-size: 2.5rem; /* Reduced from 3rem */
+    font-weight: bold;
+    margin: 0.5rem 0; /* Reduced from 1rem */
+    align-self: flex-start;
+}
+
+.ballot-date {
+    font-size: 1.1rem; /* Slightly reduced */
+    margin-bottom: 0.5rem; /* Reduced from 1rem */
+    align-self: flex-start;
+}
+
+/* Update the image-related styles in your CSS */
+
+.county-seal {
+    width: 50%;
+    aspect-ratio: 1;  /* Maintains square shape */
+    margin: 0.5rem 0;
+    align-self: flex-start;
+}
+
+.county-seal img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.ballot-qr {
+    width: 100%;
+    aspect-ratio: 1;  /* Maintains square shape */
+    margin: 0.5rem 0;
+    align-self: flex-start;
+}
+
+.ballot-qr img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Update the info column width to ensure proper image sizing */
+.ballot-info {
+    flex: 0 0 1.75in;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.selections-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-title {
+    font-size: 1.2rem; /* Reduced from 1.4rem */
+    font-weight: bold;
+    margin-bottom: 0.5rem; /* Reduced from 1rem */
+    text-transform: uppercase;
+    border-bottom: 2px solid black;
+    padding-bottom: 0.25rem; /* Reduced from 0.5rem */
+}
+
+.selections-columns {
+    display: flex;
+    gap: 0.25rem; /* Reduced from 1rem */
+}
+
+.selections-column {
+    flex: 1;
+    padding: 0 0.25rem; /* Reduced from 0.5rem */
+}
+
+.selections-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem; /* Reduced from 1rem */
+}
+
+.ballot-contest {
+    margin-bottom: 0.25rem; /* Reduced from 0.5rem */
+}
+
+.contest-title {
+    font-size: 0.7rem; /* Reduced from 0.8rem */
+    margin-bottom: 0.125rem; /* Reduced from 0.25rem */
+    text-transform: uppercase;
+}
+
+.contest-selection {
+    font-size: 0.8rem; /* Reduced from 0.9rem */
+    font-weight: bold;
+}
+
+/* Keep the print styles the same */
+@media print {
+    .page-container,
+    .review-page {
+        display: none !important;
+    }
+    
+    .ballot-summary-page {
+        display: block !important;
+        position: static;
+        transform: none;
+    }
+    
+    @page {
+        size: letter;
+        margin: 0;
+    }
+    
+    * {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
 }
