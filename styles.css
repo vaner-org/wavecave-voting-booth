@@ -12,7 +12,7 @@ body {
 			width: 100vw;
 			position: fixed;
 			transform: translateX(100vw);
-			transition: transform 0.1s ease-in-out;
+/*			transition: transform 0.1s ease-in-out;*/
 			background: #f4f5f7;
 		}
 		
@@ -1179,4 +1179,58 @@ body {
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
     }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Add these styles to your existing CSS */
+
+/* Print confirmation page styles */
+.get-started-container h2 {
+    font-size: 1rem;
+    color: #666;
+    padding: 0 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+/* Ensure consistent spacing for confirmation page */
+.get-started-container .options-wrapper {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+/* Style for the print confirmation button */
+.print-confirmation .start-button-container {
+    background: #1338BE;
+    color: white;
+    border-color: #1338BE;
+}
+
+.print-confirmation .start-button-container:hover {
+    background: #0f2c9e;
+    border-color: #0f2c9e;
+}
+
+
+/* Specific style for print confirmation page navigation */
+.print-confirmation-page .navigation {
+    justify-content: flex-start;  /* Aligns items to the left */
+}
+
+/* If needed, add some right margin to the back button */
+.print-confirmation-page .navigation .nav-button {
+    margin-right: auto;  /* Pushes everything else to the right */
 }

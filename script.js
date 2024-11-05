@@ -732,11 +732,35 @@ case "measure":
                     </div>
                     <div class="navigation">
                         <button class="nav-button" onclick="previousPage()">← Back</button>
-                        <button class="nav-button submit-button" onclick="submitBallot()">Print Ballot</button>
+                        <button class="nav-button" onclick="nextPage()">Next →</button>
                     </div>
                 </div>
             `;
             break;
+
+        case "print-confirmation":
+    div.innerHTML = `
+        <div class="main-container print-confirmation-page">
+            ${topBarHtml}
+            <div class="get-started-container">
+                <h1>${page.content.title}</h1>
+                <h2>${page.content.subtitle}</h2>
+                <div class="options-wrapper get-started">
+                    <div class="options">
+                        <button class="start-button-container" onclick="submitBallot()">
+                            <span>${page.content.buttonText}</span>
+                            <img src="./tap.svg" alt="Touch icon">
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="navigation">
+                <button class="nav-button" onclick="previousPage()">← Back</button>
+            </div>
+        </div>
+    `;
+    break;
+
     }
 
     return div;
@@ -767,15 +791,27 @@ case "measure":
 	});
 }
 
+// Modified reviewPage definition to change the Print button to Next
 const reviewPage = {
-	type: "review",
-	content: {
-		title: "Review Your Selections",
-		subtitle: "Check your selections before submitting your ballot"
-	}
+    type: "review",
+    content: {
+        title: "Review Your Selections",
+        subtitle: "Check your selections before submitting your ballot"
+    }
 };
 
-allPages.push(reviewPage);
+// Add new confirmation page
+const confirmationPage = {
+    type: "print-confirmation",
+    content: {
+        title: "Ready to Print?",
+        subtitle: "This is your last chance to go back and make any changes",
+        buttonText: "Yes - I am ready to print"
+    }
+};
+
+// Update allPages array to include the confirmation page
+allPages.push(reviewPage, confirmationPage);
 
 		function previousPage() {
 			if (currentPage > 0) {
