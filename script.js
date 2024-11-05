@@ -606,120 +606,124 @@
             break;
 
         case "candidate":
-
-case "measure":
-
-    div.innerHTML = `
-
-        <div class="main-container">
-
-            
-        		${topBarHtml}
-            
-
-            <div class="header">
-
-                <div class="contest-number">Contest ${index + 1 - welcomeSequence.length}/${questions.length}</div>
-
-                <div class="category">${page.category}</div>
-
-                <div class="title">${page.title}</div>
-
-                <div class="vote-instructions">
-
-                    <span>${page.voteFor.replace(/YES/g, '<strong>YES</strong>').replace(/NO/g, '<strong>NO</strong>').replace(/ONE/g, '<strong>ONE</strong>')}</span>
-
-                    <span>Selections left: 1</span>
-
-                </div>
-
-            </div>
-
-            
-
-            <div class="content-wrapper">
-
-                <div class="options-wrapper">
-
-                    <div class="options">
-
-                        ${page.options.map((option, optionIndex) => {
-
-                            if (page.title.includes("PRESIDENT AND VICE PRESIDENT")) {
-
-                                const [president, vicePresident] = option.name.split(" / ");
-
-                                const party = option.description.split(" (").pop().replace(")", "");
-
-                                return `
-
-                                    <button class="option-button presidential-ticket" onclick="selectOption(${index}, ${optionIndex})">
-
-                                        <div class="candidate-name">${president}</div>
-
-                                        <div class="candidate-role">For President</div>
-
-                                        <div class="candidate-name">${vicePresident}</div>
-
-                                        <div class="candidate-role">For Vice President</div>
-
-                                        <div class="party-affiliation">${party}</div>
-
-                                    </button>
-
-                                `;
-
-                            } else {
-
-                                return `
-
-                                    <button class="option-button" onclick="selectOption(${index}, ${optionIndex})">
-
-                                        <div class="candidate-name">${option.name}</div>
-
-                                        ${option.description ? `<div class="candidate-description">${option.description}</div>` : ''}
-
-                                    </button>
-
-                                `;
-
-                            }
-
-                        }).join('')}
-
-                        ${page.type === "candidate" ? `
-
-                            <div class="write-in-option">
-
-                                <div class="candidate-name">Write-in candidate</div>
-
-                            </div>
-
-                        ` : ''}
-
+        case "measure":
+            div.innerHTML = `
+                <div class="main-container">
+                    ${topBarHtml}
+                    <div class="header">
+                        <div class="contest-number">Contest ${index + 1 - welcomeSequence.length}/${questions.length}</div>
+                        <div class="category">${page.category}</div>
+                        <div class="title">${page.title}</div>
+                        <div class="vote-instructions">
+                            <span>${page.voteFor.replace(/YES/g, '<strong>YES</strong>').replace(/NO/g, '<strong>NO</strong>').replace(/ONE/g, '<strong>ONE</strong>')}</span>
+                            <span>Selections left: 1</span>
+                        </div>
                     </div>
+                    
+                    <div class="content-wrapper">
+                        <div class="options-wrapper">
+                            <div class="options">
+                                ${page.options.map((option, optionIndex) => {
+                                    if (page.title.includes("PRESIDENT AND VICE PRESIDENT")) {
+                                        const [president, vicePresident] = option.name.split(" / ");
+                                        const party = option.description.split(" (").pop().replace(")", "");
+                                        return `
+                                            <button class="option-button presidential-ticket" onclick="selectOption(${index}, ${optionIndex})">
+                                                <div class="candidate-name">${president}</div>
+                                                <div class="candidate-role">For President</div>
+                                                <div class="candidate-name">${vicePresident}</div>
+                                                <div class="candidate-role">For Vice President</div>
+                                                <div class="party-affiliation">${party}</div>
+                                            </button>
+                                        `;
+                                    } else {
+                                        return `
+                                            <button class="option-button" onclick="selectOption(${index}, ${optionIndex})">
+                                                <div class="candidate-name">${option.name}</div>
+                                                ${option.description ? `<div class="candidate-description">${option.description}</div>` : ''}
+                                            </button>
+                                        `;
+                                    }
+                                }).join('')}
+                                
+                                ${page.type === "candidate" ? `
+                                    <div class="write-in-option">
+                                        <div class="candidate-name">Write-in candidate</div>
+                                    </div>
 
+                                    <div class="write-in-form" style="display: none;">
+                                        <form class="write-in-form-content">
+                                            <div class="form-group">
+                                                <label>Candidate Name</label>
+                                                <input type="text" class="write-in-name" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Description (optional)</label>
+                                                <input type="text" class="write-in-description">
+                                            </div>
+                                            <div class="form-buttons">
+                                                <button type="button" class="write-in-cancel">Cancel</button>
+                                                <button type="submit" class="write-in-submit">Submit</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                ` : ''}
+                            </div>
+                        </div>
+                        ${page.type === "measure" ? `<div class="measure-text">${page.measureText}</div>` : ''}
+                    </div>
+                    
+                    <div class="navigation">
+                        <button class="nav-button" onclick="previousPage()">← Back</button>
+                        <button class="nav-button" onclick="nextPage()">Next →</button>
+                    </div>
                 </div>
+            `;
 
-                ${page.type === "measure" ? `<div class="measure-text">${page.measureText}</div>` : ''}
+            // Add event listeners after creating the elements
+            if (page.type === "candidate") {
+                const writeInOption = div.querySelector('.write-in-option');
+                const writeInForm = div.querySelector('.write-in-form');
+                const writeInCancel = div.querySelector('.write-in-cancel');
+                const writeInSubmit = div.querySelector('.write-in-form-content');
+                const regularOptions = div.querySelectorAll('.option-button');
 
-            </div>
+                writeInOption.addEventListener('click', () => {
+                    writeInForm.style.display = 'block';
+                    writeInOption.classList.add('active');
+                    // Deselect any regular options
+                    regularOptions.forEach(opt => opt.classList.remove('selected'));
+                    delete selections[index];
+                });
 
-            
+                writeInCancel.addEventListener('click', () => {
+                    writeInForm.style.display = 'none';
+                    writeInOption.classList.remove('active');
+                    div.querySelector('.write-in-name').value = '';
+                    div.querySelector('.write-in-description').value = '';
+                });
 
-            <div class="navigation">
-
-                <button class="nav-button" onclick="previousPage()">← Back</button>
-
-                <button class="nav-button" onclick="nextPage()">Next →</button>
-
-            </div>
-
-        </div>
-
-    `;
-
-    break;
+                writeInSubmit.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const name = div.querySelector('.write-in-name').value.trim();
+                    const description = div.querySelector('.write-in-description').value.trim();
+                    
+                    if (name) {
+                        selections[index] = {
+                            contestNumber: index - welcomeSequence.length,
+                            category: page.category,
+                            title: page.title,
+                            selection: name,
+                            description: description,
+                            isWriteIn: true,
+                            pageIndex: index
+                        };
+                        writeInForm.style.display = 'none';
+                        writeInOption.classList.add('selected');
+                    }
+                });
+            }
+            break;
 
 
         case "review":
@@ -988,6 +992,61 @@ function submitBallot() {
         document.querySelector('.review-page').style.display = 'block';
     }, 100);
 }
+
+function toggleWriteIn(pageIndex) {
+    const pageContainer = document.querySelectorAll('.page-container')[pageIndex];
+    const writeInOption = pageContainer.querySelector('.write-in-option');
+    const writeInForm = pageContainer.querySelector('.write-in-form');
+    const options = pageContainer.querySelectorAll('.option-button');
+    
+    // Deselect regular options
+    options.forEach(opt => opt.classList.remove('selected'));
+    delete selections[pageIndex];
+    
+    // Toggle write-in form
+    writeInForm.style.display = writeInForm.style.display === 'none' ? 'block' : 'none';
+    writeInOption.classList.toggle('active');
+}
+
+function cancelWriteIn(pageIndex) {
+    const pageContainer = document.querySelectorAll('.page-container')[pageIndex];
+    const writeInOption = pageContainer.querySelector('.write-in-option');
+    const writeInForm = pageContainer.querySelector('.write-in-form');
+    
+    writeInForm.style.display = 'none';
+    writeInOption.classList.remove('active', 'selected');
+    pageContainer.querySelector('.write-in-name').value = '';
+    pageContainer.querySelector('.write-in-description').value = '';
+}
+
+function submitWriteIn(event, pageIndex) {
+    event.preventDefault();
+    const pageContainer = document.querySelectorAll('.page-container')[pageIndex];
+    const writeInOption = pageContainer.querySelector('.write-in-option');
+    const writeInForm = pageContainer.querySelector('.write-in-form');
+    const nameInput = pageContainer.querySelector('.write-in-name');
+    const descriptionInput = pageContainer.querySelector('.write-in-description');
+    const page = allPages[pageIndex];
+    
+    const name = nameInput.value.trim();
+    const description = descriptionInput.value.trim();
+    
+    if (name) {
+        selections[pageIndex] = {
+            contestNumber: pageIndex - welcomeSequence.length,
+            category: page.category,
+            title: page.title,
+            selection: name,
+            description: description,
+            isWriteIn: true,
+            pageIndex: pageIndex
+        };
+        writeInForm.style.display = 'none';
+        writeInOption.classList.add('selected');
+        writeInOption.classList.remove('active');
+    }
+}
+
 		// Initialize pages
 		allPages.forEach((page, index) => {
 			container.appendChild(createPageElement(page, index));

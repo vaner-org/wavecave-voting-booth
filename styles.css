@@ -260,7 +260,6 @@ body {
 			text-align: left;
 			font-size: 1rem;
 			min-height: 3.5rem;
-			pointer-events: none;
 			color: #666;
 		}
 
@@ -791,7 +790,6 @@ body {
     text-align: left;
     font-size: 1rem;
     min-height: 3.5rem;
-    pointer-events: none;
     color: #666;
 }
 
@@ -934,7 +932,6 @@ body {
     text-align: left;
     font-size: 1rem;
     min-height: 3.5rem;
-    pointer-events: none;
     color: #666;
     width: 100%;
 }
@@ -1268,6 +1265,135 @@ body {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Fix write-in option to be clickable and match other buttons */
+.write-in-option {
+    background: white;
+    border: 1px dotted #000;
+    padding: 1rem;
+    text-align: left;
+    font-size: 1rem;
+    cursor: pointer; /* Make clickable */
+    min-height: 3.5rem;
+    width: 100%;
+    color: #666;
+    transition: all 0.2s;
+}
+
+.write-in-option:hover {
+    background: #f0f0f0;
+}
+
+.write-in-option.active {
+    border-style: solid;
+    color: #000;
+}
+
+.write-in-option.selected {
+    background: #000;
+    color: #fff;
+    border-style: solid;
+    padding-left: 3rem;
+    position: relative;
+}
+
+.write-in-option.selected::before {
+    content: "✓";
+    position: absolute;
+    left: 1rem;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* Style the write-in form */
+.write-in-form {
+    margin-top: 0.75rem;
+    display: none; /* Hide by default */
+}
+
+.write-in-form-content {
+    border: 1px solid #000;
+    padding: 1rem;
+    background: white;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.write-in-cancel {
+    background: white;
+    border: 1px solid #000;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.write-in-submit {
+    background: black;
+    color: white;
+    border: 1px solid #000;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Update main container */
 .main-container {
     width: 100%;
@@ -1402,4 +1528,87 @@ body {
         padding-left: 16px;
         padding-right: 16px;
     }
+}
+
+
+
+
+/* Base option button styles with consistent left padding */
+.option-button {
+    background: white;
+    border: 1px solid #000;
+    padding: 1rem 3rem;  /* Updated to have consistent left padding */
+    text-align: left;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    min-height: 3.5rem;
+    width: 100%;
+    position: relative;
+}
+
+/* Selected state maintains the same padding */
+.option-button.selected {
+    background: #000;
+    color: #fff;
+    padding-left: 3rem;  /* Maintain consistent padding */
+}
+
+/* Add tick mark for selected buttons */
+.option-button.selected::before {
+    content: "✓";
+    position: absolute;
+    left: 1rem;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* Presidential ticket specific styles - now matches other options */
+.presidential-ticket {
+    padding-left: 3rem;
+}
+
+.presidential-ticket.selected {
+    padding-left: 3rem;
+}
+
+/* Write-in option styles with consistent padding */
+.write-in-option {
+    background: white;
+    border: 1px dotted #000;
+    padding: 1rem 3rem;  /* Updated to match other options */
+    text-align: left;
+    font-size: 1rem;
+    cursor: pointer;
+    min-height: 3.5rem;
+    width: 100%;
+    color: #666;
+    transition: all 0.2s;
+    position: relative;
+}
+
+.write-in-option.selected {
+    background: #000;
+    color: #fff;
+    border-style: solid;
+    padding-left: 3rem;
+}
+
+.write-in-option.selected::before {
+    content: "✓";
+    position: absolute;
+    left: 1rem;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* Ensure content within buttons is properly aligned */
+.candidate-name,
+.candidate-description,
+.candidate-role,
+.party-affiliation {
+    width: 100%;
+    padding-right: 1rem;  /* Add some right padding for better text alignment */
 }
