@@ -374,7 +374,7 @@ body {
 }
 
 .review-selection {
-  color: #1338BE;
+  color: #000;
   font-size: 0.9rem;
 }
 
@@ -490,7 +490,7 @@ Updated CSS for Text Formatting
 
 /* Update review page styles to handle formatting */
 .review-selection {
-    color: #1338BE;
+    color: #000;
     font-size: 0.9rem;
     white-space: pre-line;
 }
@@ -909,14 +909,16 @@ body {
 
 /* Add tick mark for selected buttons */
 .option-button.selected::before {
-    content: "✓";
+    content: "";
     position: absolute;
     left: 1rem;
-    color: white;
-    font-size: 1.2rem;
-    font-weight: bold;
+    width: 1.2rem; /* Set width to fit the SVG */
+    height: 1.2rem; /* Set height to fit the SVG */
+    background-image: url('check.svg');
+    background-size: contain; /* Ensure the SVG scales properly */
+    background-repeat: no-repeat;
 }
-
+✓
 /* Adjust padding for selected buttons to accommodate tick */
 .option-button.selected {
     background: #000;
@@ -1019,7 +1021,6 @@ body {
 }
 
 .start-button-container.selected::before {
-    content: "✓";
     position: absolute;
     left: 1rem;
     color: white;
@@ -1311,7 +1312,6 @@ body {
 }
 
 .write-in-option.selected::before {
-    content: "✓";
     position: absolute;
     left: 1rem;
     color: white;
@@ -1557,7 +1557,6 @@ body {
 
 /* Add tick mark for selected buttons */
 .option-button.selected::before {
-    content: "✓";
     position: absolute;
     left: 1rem;
     color: white;
@@ -1597,7 +1596,6 @@ body {
 }
 
 .write-in-option.selected::before {
-    content: "✓";
     position: absolute;
     left: 1rem;
     color: white;
