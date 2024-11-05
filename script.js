@@ -903,6 +903,7 @@ function createBallotSummaryElement() {
     div.innerHTML = `
         <div class="ballot-grid">
             <div class="ballot-column ballot-info">
+            		<div class="ballot-pattern"></div>
                 <div class="black-line"></div>
                 <div class="ballot-year">2024</div>
                 <div class="ballot-date">November 5</div>
