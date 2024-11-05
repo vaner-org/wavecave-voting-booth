@@ -68,6 +68,10 @@
       }
     ];
 
+    // Add to existing state management
+    const selections = {};
+    let hasVisitedReviewPage = false;
+
     const allPages = [...welcomeSequence, ...questions];
     let currentPage = 0;
     const answers = new Array(allPages.length).fill(null);
@@ -76,6 +80,35 @@
     function createPageElement(page, index) {
       const div = document.createElement('div');
       div.className = `page-container ${index === 0 ? 'active' : ''}`;
+
+      if (page.type === "review") {
+    div.innerHTML = `
+      <div class="main-container">
+        <div class="top-bar">
+          <button class="top-bar-button">
+            <img src="data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 6V12M12 12V18M12 12H18M12 12H6' stroke='%23666666' stroke-width='2'/%3E%3C/svg%3E">
+            Settings
+          </button>
+          <button class="top-bar-button">
+            <img src="data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z' stroke='%23666666' stroke-width='2'/%3E%3Cpath d='M12 16V12M12 8H12.01' stroke='%23666666' stroke-width='2'/%3E%3C/svg%3E">
+            Help
+          </button>
+        </div>
+        
+        <div class="review-page">
+          <h1>${page.content.title}</h1>
+          <h2>${page.content.subtitle}</h2>
+          <div id="reviewList" class="review-list"></div>
+        </div>
+        
+        <div class="navigation">
+          <button class="nav-button" onclick="previousPage()">← Back</button>
+          <button class="nav-button submit-button" onclick="submitBallot()">Print Ballot</button>
+        </div>
+      </div>
+    `;
+    return div;
+  }
 
       switch(page.type) {
         case "welcome":
@@ -211,18 +244,39 @@
     }
 
     function selectOption(pageIndex, optionIndex) {
-      const pageContainer = document.querySelectorAll('.page-container')[pageIndex];
-      const options = pageContainer.querySelectorAll('.option-button');
-      
-      options.forEach((option, i) => {
-        if (i === optionIndex) {
-          option.classList.toggle('selected');
-          answers[pageIndex] = option.classList.contains('selected') ? optionIndex : null;
-        } else {
-          option.classList.remove('selected');
-        }
-      });
+  const pageContainer = document.querySelectorAll('.page-container')[pageIndex];
+  const options = pageContainer.querySelectorAll('.option-button');
+  const page = allPages[pageIndex];
+  
+  options.forEach((option, i) => {
+    if (i === optionIndex) {
+      option.classList.toggle('selected');
+      if (option.classList.contains('selected')) {
+        selections[pageIndex] = {
+          contestNumber: pageIndex - welcomeSequence.length,
+          category: page.category,
+          title: page.title,
+          selection: page.options[optionIndex].name,
+          pageIndex: pageIndex
+        };
+      } else {
+        delete selections[pageIndex];
+      }
+    } else {
+      option.classList.remove('selected');
     }
+  });
+}
+
+const reviewPage = {
+  type: "review",
+  content: {
+    title: "Review Your Selections",
+    subtitle: "Check your selections before submitting your ballot"
+  }
+};
+
+allPages.push(reviewPage);
 
     function previousPage() {
       if (currentPage > 0) {
@@ -237,19 +291,84 @@
       }
     }
 
-    function nextPage() {
-      if (currentPage < allPages.length - 1) {
-        const current = document.querySelectorAll('.page-container')[currentPage];
-        const next = document.querySelectorAll('.page-container')[currentPage + 1];
-        
-        current.classList.remove('active');
-        current.classList.add('previous');
-        next.classList.add('active');
-        
-        currentPage++;
-      }
-    }
+    function updateReviewPage() {
+  const reviewList = document.getElementById('reviewList');
+  if (!reviewList) return;
 
+  reviewList.innerHTML = '';
+  const contestCount = questions.length;
+  const selectedCount = Object.keys(selections).length;
+
+  reviewList.innerHTML = `
+    <div class="review-summary">
+      <p>You have made selections for ${selectedCount} out of ${contestCount} contests</p>
+    </div>
+  `;
+
+  Object.values(selections)
+    .sort((a, b) => a.contestNumber - b.contestNumber)
+    .forEach(selection => {
+      const reviewItem = document.createElement('div');
+      reviewItem.className = 'review-item';
+      reviewItem.innerHTML = `
+        <div class="review-contest">
+          <div class="review-contest-header">
+            <span class="review-contest-number">Contest ${selection.contestNumber}</span>
+            <span class="review-category">${selection.category}</span>
+          </div>
+          <div class="review-title">${selection.title}</div>
+          <div class="review-selection">${selection.selection}</div>
+        </div>
+        <button class="change-selection-button" onclick="goToContest(${selection.pageIndex})">
+          Change
+        </button>
+      `;
+      reviewList.appendChild(reviewItem);
+    });
+}
+
+// Function to navigate to a specific contest
+function goToContest(pageIndex) {
+  const pages = document.querySelectorAll('.page-container');
+  pages.forEach(page => {
+    page.classList.remove('active', 'previous');
+  });
+  
+  pages[pageIndex].classList.add('active');
+  currentPage = pageIndex;
+}
+
+// Modified nextPage function to update review page
+function nextPage() {
+  if (currentPage < allPages.length - 1) {
+    const current = document.querySelectorAll('.page-container')[currentPage];
+    const next = document.querySelectorAll('.page-container')[currentPage + 1];
+    
+    current.classList.remove('active');
+    current.classList.add('previous');
+    next.classList.add('active');
+    
+    currentPage++;
+    
+    if (allPages[currentPage].type === 'review') {
+      updateReviewPage();
+    }
+  }
+}
+
+// Add submitBallot function
+function submitBallot() {
+  // Add timestamp to the review page
+  const reviewPage = document.querySelector('.review-page');
+  const timestamp = new Date().toLocaleString();
+  reviewPage.setAttribute('data-print-time', timestamp);
+
+  // Add a small delay to ensure styles are applied
+  setTimeout(() => {
+    // Trigger print dialog
+    window.print();
+  }, 100);
+}
     // Initialize pages
     allPages.forEach((page, index) => {
       container.appendChild(createPageElement(page, index));
