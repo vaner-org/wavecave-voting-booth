@@ -881,18 +881,18 @@ allPages.push(reviewPage, confirmationPage);
             const reviewItem = document.createElement('div');
             reviewItem.className = 'review-item';
             reviewItem.innerHTML = `
-                <div class="review-contest">
-                    <div class="review-contest-header">
-                        <span class="review-contest-number">Contest ${selection.contestNumber}</span>
-                        <span class="review-category">${selection.category}</span>
-                    </div>
-                    <div class="review-title">${selection.title}</div>
-                    <div class="review-selection">${selection.selection}</div>
-                </div>
-                <button class="change-selection-button" onclick="goToContest(${selection.pageIndex})">
-                    Change
-                </button>
-            `;
+    <div class="review-contest">
+        <div class="review-contest-number">${selection.contestNumber}</div>
+        <div class="review-content">
+            <div class="review-title">${selection.title}</div>
+            <div class="review-selection">${selection.selection}</div>
+        </div>
+    </div>
+    <button class="change-selection-button" onclick="goToContest(${selection.pageIndex})">
+        Change
+    </button>
+`;
+
             reviewList.appendChild(reviewItem);
         });
 }
