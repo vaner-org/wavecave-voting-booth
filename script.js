@@ -1,375 +1,824 @@
 // Welcome sequence pages
-    const welcomeSequence = [
-      {
-        type: "welcome",
-        content: {
-          title: "Welcome to the November 6, 2024, VSAP",
-          subtitle: "PRESIDENTIAL ELECTION",
-          year: "2024",
-          startText: "Touch the circle to start",
-          startTextSpanish: "Toque el círculo para empezar"
-        }
-      },
-      {
-        type: "get-started",
-        content: {
-          title: "Let's get started",
-          buttonText: "I want to start voting"
-        }
-      },
-      {
-        type: "instruction",
-        content: {
-          title: "Make your selections",
-          mainText: "There are 28 contests on today's ballot",
-          subText: "When you reach the end, you will be able to review your selections."
-        }
-      }
-    ];
+		const welcomeSequence = [
+			{
+				type: "welcome",
+				content: {
+					title: "Welcome to the November 6, 2024, VSAP",
+					subtitle: "PRESIDENTIAL ELECTION",
+					year: "2024",
+					startText: "Touch the circle to start",
+					startTextSpanish: "Toque el círculo para empezar"
+				}
+			},
+			{
+				type: "get-started",
+				content: {
+					title: "Let's get started",
+					buttonText: "I want to start voting"
+				}
+			},
+			{
+				type: "instruction",
+				content: {
+					title: "Make your selections",
+					mainText: "There are 28 contests on today's ballot",
+					subText: "When you reach the end, you will be able to review your selections."
+				}
+			}
+		];
 
-    // Voting questions
-    const questions = [
-      {
-        type: "candidate",
-        category: "CITY/LOCAL",
-        title: "WILLIAM S. HART UNION HIGH SCHOOL DISTRICT Governing Board Member, Trustee Area No. 1",
-        voteFor: "Vote for ONE",
-        options: [
-          {
-            name: "GLORIA MERCADO-FORTINE",
-            description: "Educator/Small Businessowner"
-          },
-          {
-            name: "AAKASH AHUJA",
-            description: "Father/Psychiatrist/Educator"
-          },
-          {
-            name: "LINDA HOVIS STORLI",
-            description: "Governing Board Member, William S. Hart Union High School District, Trustee Area 1"
-          }
-        ]
-      },
-      {
-        type: "measure",
-        category: "STATE",
-        title: "STATE MEASURE 3",
-        voteFor: "Vote for YES or NO",
-        measureText: "CONSTITUTIONAL RIGHT TO MARRIAGE. LEGISLATIVE CONSTITUTIONAL AMENDMENT. Amends California Constitution to recognize fundamental right to marry, regardless of sex or race. Removes language in California Constitution stating that marriage is only between a man and a woman. Fiscal Impact: No change in revenues or costs for state and local governments.\n\nSupporters: Sierra Pacific Synod of The Evangelical Lutheran Church in America; Dolores Huerta Foundation; Equality California Opponents: Jonathan Keller, California Family Council; Rev. Tanner DiBella",
-        options: [
-          {
-            name: "YES on Measure 3",
-            description: ""
-          },
-          {
-            name: "NO on Measure 3",
-            description: ""
-          }
-        ]
-      }
-    ];
+		// Voting questions
+		const questions = [
+			{
+				type: "candidate",
+				category: "CITY/LOCAL",
+				title: "WILLIAM S. HART UNION HIGH SCHOOL DISTRICT Governing Board Member, Trustee Area No. 1",
+				voteFor: "Vote for ONE",
+				options: [
+					{
+						name: "GLORIA MERCADO-FORTINE",
+						description: "Educator/Small Businessowner"
+					},
+					{
+						name: "AAKASH AHUJA",
+						description: "Father/Psychiatrist/Educator"
+					},
+					{
+						name: "LINDA HOVIS STORLI",
+						description: "Governing Board Member, William S. Hart Union High School District, Trustee Area 1"
+					}
+				]
+			},
 
-    // Add to existing state management
-    const selections = {};
-    let hasVisitedReviewPage = false;
+			{
+				type: "candidate",
+				category: "CITY/LOCAL",
+				title: "SANTA CLARITA COMMUNITY COLLEGE DISTRICT Member of the Board of Trustees, Trustee Area 2",
+				voteFor: "Vote for ONE",
+				options: [
+					{
+						name: "EDEL ALONSO",
+						description: "Incumbent"
+					},
+					{
+						name: "SCOTT SCHAUER",
+						description: "Businessman/Foundation President"
+					},
+				]
+			},
+		{
+				type: "candidate",
+				category: "CITY/LOCAL",
+				title: "STATE SENATOR, 23rd District",
+				voteFor: "Vote for ONE",
+				options: [
+					{
+						name: "SUZETTE MARTINEZ VALLADARES",
+						description: "Party Preference: Republican      Small Business Owner"
+					},
+					{
+						name: "KIPP MUELLER",
+						description: "Party Preference: Democratic      Workers Rights Attorney"
+					},
+				]
+			},  
 
-    const allPages = [...welcomeSequence, ...questions];
-    let currentPage = 0;
-    const answers = new Array(allPages.length).fill(null);
-    const container = document.getElementById('pagesContainer');
+			{
+				type: "candidate",
+				category: "CITY/LOCAL",
+				title: "MEMBER OF THE STATE ASSEMBLY, 40th District",
+				voteFor: "Vote for ONE",
+				options: [
+					{
+						name: "PATRICK LEE GIPSON",
+						description: "Party Preference: Republican      Retired Deputy Sheriff"
+					},
+					{
+						name: "PILAR SCHIAVO",
+						description: "Party Preference: Democratic      Assemblywoman"
+					},
+				]
+			},  
+			{
+				type: "candidate",
+				category: "CITY/LOCAL",
+				title: "UNITED STATES REPRESENTATIVE, 27th District",
+				voteFor: "Vote for ONE",
+				options: [
+					{
+						name: "MIKE GARCIA",
+						description: "Party Preference: Republican      Congressman/Father"
+					},
+					{
+						name: "GEORGE WHITESIDES",
+						description: "Party Preference: Democratic      Aerospace Businessman/Father"
+					},
+				]
+			},  
+			{
+				type: "candidate",
+				category: "COUNTY",
+				title: "DISTRICT ATTORNEY",
+				voteFor: "Vote for ONE",
+				options: [
+					{
+						name: "NATHAN HOCHMAN",
+						description: "Criminal Law Attorney"
+					},
+					{
+						name: "GEORGE GASCÓN",
+						description: "District Attorney"
+					},
+				]
+			}, 
+			{
+				type: "candidate",
+				category: "COUNTY",
+				title: "JUDGE OF THE SUPERIOR COURT Office No. 39",
+				voteFor: "Vote for ONE",
+				options: [
+					{
+						name: "GEORGE A. TURNER JR.",
+						description: "Deputy Public Defender, County of Los Angeles"
+					},
+					{
+						name: "STEVE NAPOLITANO",
+						description: "Attorney/Councilmember, Manhattan Beach"
+					},
+				]
+			}, 
+			{
+				type: "candidate",
+				category: "COUNTY",
+				title: "JUDGE OF THE SUPERIOR COURT Office No. 48",
+				voteFor: "Vote for ONE",
+				options: [
+					{
+						name: "RENEE ROSE",
+						description: "Deputy District Attorney, County of Los Angeles"
+					},
+					{
+						name: "ERICKA J. WILEY",
+						description: "Deputy Public Defender, County of Los Angeles"
+					},
+				]
+			}, 
 
-    function createPageElement(page, index) {
-      const div = document.createElement('div');
-      div.className = `page-container ${index === 0 ? 'active' : ''}`;
+			{
+				type: "candidate",
+				category: "COUNTY",
+				title: "JUDGE OF THE SUPERIOR COURT Office No. 97",
+				voteFor: "Vote for ONE",
+				options: [
+					{
+						name: "LA SHAE HENDERSON",
+						description: "Deputy Public Defender"
+					},
+					{
+						name: "SHARON RANSOM",
+						description: "Deputy District Attorney, County of Los Angeles"
+					},
+				]
+			}, 
 
-      if (page.type === "review") {
-    div.innerHTML = `
-      <div class="main-container">
-        <div class="top-bar">
-          <button class="top-bar-button">
-            <img src="data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 6V12M12 12V18M12 12H18M12 12H6' stroke='%23666666' stroke-width='2'/%3E%3C/svg%3E">
-            Settings
-          </button>
-          <button class="top-bar-button">
-            <img src="data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z' stroke='%23666666' stroke-width='2'/%3E%3Cpath d='M12 16V12M12 8H12.01' stroke='%23666666' stroke-width='2'/%3E%3C/svg%3E">
-            Help
-          </button>
-        </div>
-        
-        <div class="review-page">
-          <h1>${page.content.title}</h1>
-          <h2>${page.content.subtitle}</h2>
-          <div id="reviewList" class="review-list"></div>
-        </div>
-        
-        <div class="navigation">
-          <button class="nav-button" onclick="previousPage()">← Back</button>
-          <button class="nav-button submit-button" onclick="submitBallot()">Print Ballot</button>
-        </div>
-      </div>
-    `;
-    return div;
-  }
+			{
+				type: "candidate",
+				category: "COUNTY",
+				title: "JUDGE OF THE SUPERIOR COURT Office No. 135",
+				voteFor: "Vote for ONE",
+				options: [
+					{
+						name: "GEORGIA HUERTA",
+						description: "Deputy District Attorney, County of Los Angeles"
+					},
+					{
+						name: "STEVEN YEE MAC",
+						description: "Deputy District Attorney, County of Los Angeles"
+					},
+				]
+			}, 
 
-      switch(page.type) {
-        case "welcome":
-          div.innerHTML = `
-            <div class="welcome-page">
-              <div class="welcome-content">
-                <div class="welcome-header">
-                  <h1>${page.content.title}</h1>
-                  <h2>${page.content.subtitle}</h2>
-                </div>
-                <div class="welcome-year">${page.content.year}</div>
-                <div>
-                  <button class="start-circle" onclick="nextPage()"></button>
-                  <p>${page.content.startText}</p>
-                  <p>${page.content.startTextSpanish}</p>
-                </div>
-                <div class="headphones-icon">🎧</div>
-                <p>For audio, please put on the headphones</p>
-              </div>
-            </div>
-          `;
-          break;
+			{
+				type: "candidate",
+				category: "COUNTY",
+				title: "JUDGE OF THE SUPERIOR COURT Office 137",
+				voteFor: "Vote for ONE",
+				options: [
+					{
+						name: "LUZ E. HERRERA",
+						description: "Attorney/Law Professor"
+					},
+					{
+						name: "TRACEY M. BLOUNT",
+						description: "Senior Deputy County Counsel, County of Los Angeles"
+					},
+				]
+			}, 
 
-        case "get-started":
-          div.innerHTML = `
-            <div class="main-container">
-              <div class="top-bar">
-                <button class="top-bar-button">
-                  <img src="data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 6V12M12 12V18M12 12H18M12 12H6' stroke='%23666666' stroke-width='2'/%3E%3C/svg%3E">
-                  Settings
-                </button>
-                <button class="top-bar-button">
-                  <img src="data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z' stroke='%23666666' stroke-width='2'/%3E%3Cpath d='M12 16V12M12 8H12.01' stroke='%23666666' stroke-width='2'/%3E%3C/svg%3E">
-                  Help
-                </button>
-              </div>
-              
-              <div class="get-started-container">
-                <h1>${page.content.title}</h1>
-                <div class="start-button-container" onclick="nextPage()">
-                  ${page.content.buttonText}
-                  <img class="touch-icon" src="data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8 12H12M12 12H16M12 12V8M12 12V16' stroke='%23000000' stroke-width='2'/%3E%3C/svg%3E">
-                </div>
-              </div>
-              
-              <div class="navigation">
-                <button class="nav-button single-nav-button" onclick="nextPage()">Start →</button>
-              </div>
-            </div>
-          `;
-          break;
+						{
+		type: "candidate",
+		category: "NATIONAL ELECTION",
+		title: "PRESIDENT AND VICE PRESIDENT",
+		voteFor: "Vote for ONE",
+		options: [
+			{
+				name: "ROBERT F. KENNEDY JR. / NICOLE SHANAHAN",
+				description: "For President / For Vice President (American Independent)"
+			},
+			{
+				name: "CHASE OLIVER / MIKE TER MAAT",
+				description: "For President / For Vice President (Libertarian)"
+			},
+			{
+				name: "JILL STEIN / RUDOLPH WARE",
+				description: "For President / For Vice President (Green)"
+			},
+			{
+				name: "DONALD J. TRUMP / JD VANCE",
+				description: "For President / For Vice President (Republican)"
+			},
+			{
+				name: "CLAUDIA DE LA CRUZ / KARINA GARCIA",
+				description: "For President / For Vice President (Peace and Freedom)"
+			},
+			{
+				name: "KAMALA D. HARRIS / TIM WALZ",
+				description: "For President / For Vice President (Democratic)"
+			}
+		]
+	},
 
-        case "instruction":
-          div.innerHTML = `
-            <div class="main-container">
-              <div class="top-bar">
-                <button class="top-bar-button">
-                  <img src="data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 6V12M12 12V18M12 12H18M12 12H6' stroke='%23666666' stroke-width='2'/%3E%3C/svg%3E">
-                  Settings
-                </button>
-                <button class="top-bar-button">
-                  <img src="data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z' stroke='%23666666' stroke-width='2'/%3E%3Cpath d='M12 16V12M12 8H12.01' stroke='%23666666' stroke-width='2'/%3E%3C/svg%3E">
-                  Help
-                </button>
-              </div>
-              
-              <div class="instruction-page">
-                <h1 class="instruction-title">${page.content.title}</h1>
-                <p class="instruction-text">${page.content.mainText}</p>
-                <p class="instruction-text">${page.content.subText}</p>
-              </div>
-              
-              <div class="navigation">
-                <button class="nav-button" onclick="previousPage()">← Back</button>
-                <button class="nav-button" onclick="nextPage()">Next →</button>
-              </div>
-            </div>
-          `;
-          break;
-          case "candidate":
-        case "measure":
-          div.innerHTML = `
-            <div class="main-container">
-              <div class="top-bar">
-                <button class="top-bar-button">
-                  <img src="data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 6V12M12 12V18M12 12H18M12 12H6' stroke='%23666666' stroke-width='2'/%3E%3C/svg%3E">
-                  Settings
-                </button>
-                <button class="top-bar-button">
-                  <img src="data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z' stroke='%23666666' stroke-width='2'/%3E%3Cpath d='M12 16V12M12 8H12.01' stroke='%23666666' stroke-width='2'/%3E%3C/svg%3E">
-                  Help
-                </button>
-              </div>
-              
-              <div class="header">
-                <div class="contest-number">Contest ${index + 1 - welcomeSequence.length}/${questions.length}</div>
-                <div class="category">${page.category}</div>
-                <div class="title">${page.title}</div>
-                <div class="vote-instructions">
-                  <span>${page.voteFor}</span>
-                  <span>Selections left: 1</span>
-                </div>
-              </div>
-              
-              ${page.type === "measure" ? `<div class="measure-text">${page.measureText}</div>` : ''}
-              
-              <div class="options-wrapper">
-                <div class="options">
-                  ${page.options.map((option, optionIndex) => `
-                    <button class="option-button" onclick="selectOption(${index}, ${optionIndex})">
-                      <div class="candidate-name">${option.name}</div>
-                      ${option.description ? `<div class="candidate-description">${option.description}</div>` : ''}
-                    </button>
-                  `).join('')}
-                  ${page.type === "candidate" ? `
-                    <div class="write-in-option">
-                      <div class="candidate-name">Write-in candidate</div>
-                    </div>
-                  ` : ''}
-                </div>
-              </div>
-              
-              <div class="navigation">
-                <button class="nav-button" onclick="previousPage()">← Back</button>
-                <button class="nav-button" onclick="nextPage()">Next →</button>
-              </div>
-            </div>
-          `;
-          break;
-      }
-      
-      return div;
-    }
+			{
+				type: "candidate",
+				category: "NATIONAL ELECTION",
+				title: "UNITED STATES SENATOR - Full Term",
+				voteFor: "Vote for ONE",
+				options: [
+					{
+						name: "ADAM B. SCHIFF",
+						description: "Party Preference: Democratic      United States Representative"
+					},
+					{
+						name: "STEVE GARVEY",
+						description: "Party Preference: Republican      Professional Baseball Representative"
+					},
+				]
+			}, 
 
-    function selectOption(pageIndex, optionIndex) {
-  const pageContainer = document.querySelectorAll('.page-container')[pageIndex];
-  const options = pageContainer.querySelectorAll('.option-button');
-  const page = allPages[pageIndex];
-  
-  options.forEach((option, i) => {
-    if (i === optionIndex) {
-      option.classList.toggle('selected');
-      if (option.classList.contains('selected')) {
-        selections[pageIndex] = {
-          contestNumber: pageIndex - welcomeSequence.length,
-          category: page.category,
-          title: page.title,
-          selection: page.options[optionIndex].name,
-          pageIndex: pageIndex
-        };
-      } else {
-        delete selections[pageIndex];
-      }
-    } else {
-      option.classList.remove('selected');
-    }
-  });
+			{
+				type: "candidate",
+				category: "NATIONAL ELECTION",
+				title: "UNITED STATES SENATOR - Short Term (Unexpired term ending January 3, 2025)",
+				voteFor: "Vote for ONE",
+				options: [
+					{
+						name: "ADAM B. SCHIFF",
+						description: "Party Preference: Democratic      United States Representative"
+					},
+					{
+						name: "STEVE GARVEY",
+						description: "Party Preference: Republican      Professional Baseball Representative"
+					},
+				]
+			}, 
+			{
+				type: "measure",
+				category: "CITY/LOCAL",
+				title: "FIRE PROTECTION SPECIAL TAX MEASURE ELECTION - MEASURE E",
+				voteFor: "Vote for YES or NO",
+				measureText: "​​CONSOLIDATED FIRE PROTECTION DISTRICT OF LOS ANGELES COUNTY EMERGENCY RESPONSE AND INFRASTRUCTURE ORDINANCE.​​ Shall an ordinance ensuring local firefighter/​paramedic emergency response, involving wildfires, house fires, heart attacks, strokes, and car accidents; to hire/​train firefighters/​paramedics, upgrade/​replace aging firefighter safety equipment, fire engines, helicopters, facilities, life-saving rescue tools, and 911 communications technology; by levying 6 cents per square foot of certain parcel improvements, providing $152 million annually, limited to 2% annual adjustment, until ended by voters, exempting low-income seniors, with independent citizens oversight, be adopted? ​​Supporters:​​ Firefighter Alexis Kendricks; AirOps Paramedic Johnny Gray; Assembly Mbr. Freddie Rodriguez; Firefighters IAFF Local 1014 ​​Opponents:​​ Howard Jarvis Taxpayers Association; Mike Antonovich, L.A. County Supervisor (ret.); Jack Humphreville",
+				options: [
+					{
+						name: "YES on Measure E",
+						description: ""
+					},
+					{
+						name: "NO on Measure E",
+						description: ""
+					}
+				]
+			},
+
+			{
+				type: "measure",
+				category: "COUNTY",
+				title: "COUNTY MEASURE G",
+				voteFor: "Vote for YES or NO",
+				measureText: "​PROPOSED COUNTY CHARTER AMENDMENT.​​ LOS ANGELES COUNTY GOVERNMENT STRUCTURE, ETHICS AND ACCOUNTABILITY CHARTER AMENDMENT. Shall the measure amending the Los Angeles County Charter to create an elected County Executive; create an independent Ethics Commission to increase restrictions on lobbying and investigate misconduct; establish a nonpartisan Legislative Analyst to review proposed County policies; increase the Board of Supervisors from five to nine elected members; require County departments to present annual budgets in public meetings; using existing funding sources with no additional taxes to implement, as detailed in the charter amendment ordinance, be adopted? ​​Supporters:​​ None submitted. ​​Opponents:​​ LA County Firefighters & Sheriffs; Community Coalition; LA County Supervisors Kathryn Barger & Holly J. Mitchell",
+				options: [
+					{
+						name: "YES on Measure G",
+						description: ""
+					},
+					{
+						name: "NO on Measure G",
+						description: ""
+					}
+				]
+			},
+
+			{
+				type: "measure",
+				category: "COUNTY",
+				title: "COUNTY MEASURE A",
+				voteFor: "Vote for YES or NO",
+				measureText: "​HOMELESSNESS SERVICES AND AFFORDABLE HOUSING ORDINANCE.​​ To require accountability and results, create affordable housing, support home ownership, provide rental assistance, increase mental health and addiction treatment, reduce and prevent homelessness; and provide services for children, families, veterans, domestic violence survivors, seniors, and disabled people experiencing homelessness; shall the measure repealing the Measure H tax and replacing it with a 1/2 cent sales tax, raising approximately $1,076,076,350 annually until voters decide to end it, with new audits and oversight, be adopted? ​​Supporters:​​ Women's & Children's Crisis Shelter; Habitat for Humanity of Greater Los Angeles; LA Family Housing. ​​Opponents:​​ Howard Jarvis Taxpayers Association; Mike Antonovich, L.A. County Supervisor (ret.); Jack Humphreville",
+				options: [
+					{
+						name: "YES on Measure A",
+						description: ""
+					},
+					{
+						name: "NO on Measure A",
+						description: ""
+					}
+				]
+			},
+
+			{
+				type: "measure",
+				category: "STATE",
+				title: "STATE MEASURE 2",
+				voteFor: "Vote for YES or NO",
+				measureText: "​AUTHORIZES BONDS FOR PUBLIC SCHOOL AND COMMUNITY COLLEGE FACILITIES. LEGISLATIVE STATUTE.​​ Authorizes $10 billion in general obligation bonds for repair, upgrade, and construction of facilities at K-12 public schools (including charter schools), community colleges, and career technical education programs, including for improvement of health and safety conditions and classroom upgrades. Requires annual audits. ​​Fiscal Impact:​​ Increased state costs of about $500 million annually for 35 years to repay the bond. ​​Supporters:​​ California Teachers Association; California School Nurses Organization; Community College League of California ​​Opponents:​​ Howard Jarvis Taxpayers Association",
+				options: [
+					{
+						name: "YES on Measure 2",
+						description: ""
+					},
+					{
+						name: "NO on Measure 2",
+						description: ""
+					}
+				]
+			},
+
+			{
+				type: "measure",
+				category: "STATE",
+				title: "STATE MEASURE 3",
+				voteFor: "Vote for YES or NO",
+				measureText: "CONSTITUTIONAL RIGHT TO MARRIAGE. LEGISLATIVE CONSTITUTIONAL AMENDMENT. Amends California Constitution to recognize fundamental right to marry, regardless of sex or race. Removes language in California Constitution stating that marriage is only between a man and a woman. Fiscal Impact: No change in revenues or costs for state and local governments.\n\nSupporters: Sierra Pacific Synod of The Evangelical Lutheran Church in America; Dolores Huerta Foundation; Equality California Opponents: Jonathan Keller, California Family Council; Rev. Tanner DiBella",
+				options: [
+					{
+						name: "YES on Measure 3",
+						description: ""
+					},
+					{
+						name: "NO on Measure 3",
+						description: ""
+					}
+				]
+			},
+
+			{
+				type: "measure",
+				category: "STATE",
+				title: "STATE MEASURE 4",
+				voteFor: "Vote for YES or NO",
+				measureText: "​​AUTHORIZES BONDS FOR SAFE DRINKING WATER, WILDFIRE PREVENTION, AND PROTECTING COMMUNITIES AND NATURAL LANDS FROM CLIMATE RISKS. LEGISLATIVE STATUTE.​​ Authorizes $10 billion in general obligation bonds for water, wildfire prevention, and protection of communities and lands. Requires annual audits. ​​Fiscal Impact:​​ Increased state costs of about $400 million annually for 40 years to repay the bond. ​​Supporters:​​ Clean Water Action; CALFIRE Firefighters; National Wildlife Federation; The Nature Conservancy ​​Opponents:​​ Howard Jarvis Taxpayers Association",
+				options: [
+					{
+						name: "YES on Measure 4",
+						description: ""
+					},
+					{
+						name: "NO on Measure 4",
+						description: ""
+					}
+				]
+			},
+
+			{
+				type: "measure",
+				category: "STATE",
+				title: "STATE MEASURE 5",
+				voteFor: "Vote for YES or NO",
+				measureText: "​​ALLOWS LOCAL BONDS FOR AFFORDABLE HOUSING AND PUBLIC INFRASTRUCTURE WITH 55% VOTER APPROVAL. LEGISLATIVE CONSTITUTIONAL AMENDMENT.​​ Allows approval of local infrastructure and housing bonds for low- and middle-income Californians with 55% vote. Accountability requirements. ​​Fiscal Impact:​​ Increased local borrowing to fund affordable housing, supportive housing, and public infrastructure. The amount would depend on decisions by local governments and voters. Borrowing would be repaid with higher property taxes. ​​Supporters:​​ California Professional Firefighters; League of Women Voters of California; Habitat for Humanity California ​​Opponents:​​ California Taxpayers Association; California Hispanic Chambers of Commerce; Women Veterans Alliance",
+				options: [
+					{
+						name: "YES on Measure 5",
+						description: ""
+					},
+					{
+						name: "NO on Measure 5",
+						description: ""
+					}
+				]
+			},
+
+			{
+				type: "measure",
+				category: "STATE",
+				title: "STATE MEASURE 6",
+				voteFor: "Vote for YES or NO",
+				measureText: "​​​ELIMINATES CONSTITUTIONAL PROVISION ALLOWING INVOLUNTARY SERVITUDE FOR INCARCERATED PERSONS. LEGISLATIVE CONSTITUTIONAL AMENDMENT.​​ Amends the California Constitution to remove current provision that allows jails and prisons to impose involuntary servitude to punish crime (i.e., forcing incarcerated persons to work). ​​Fiscal Impact:​​ Potential increase or decrease in state and local costs, depending on how work for people in state prison and county jail changes. Any effect likely would not exceed the tens of millions of dollars annually. ​​Supporters:​​ Assemblymember Lori Wilson ​​Opponents:​​ None submitted.",
+				options: [
+					{
+						name: "YES on Measure 6",
+						description: ""
+					},
+					{
+						name: "NO on Measure 6",
+						description: ""
+					}
+				]
+			},
+
+			{
+				type: "measure",
+				category: "STATE",
+				title: "STATE MEASURE 32",
+				voteFor: "Vote for YES or NO",
+				measureText: "​​RAISES MINIMUM WAGE. INITIATIVE STATUTE.​​ Raises minimum wage as follows: For employers with 26 or more employees, to $17 immediately, $18 on January 1, 2025. For employers with 25 or fewer employees, $17 on January 1, 2025, $18 on January 1, 2026. ​​Fiscal Impact:​​ State and local government costs could increase or decrease by up to hundreds of millions of dollars annually. State and local revenues likely would decrease by no more than a few hundred million dollars annually. ​​Supporters:​​ None submitted. ​​Opponents:​​ California Chamber of Commerce; California Restaurant Association; California Grocers Association",
+				options: [
+					{
+						name: "YES on Measure 32",
+						description: ""
+					},
+					{
+						name: "NO on Measure 32",
+						description: ""
+					}
+				]
+			},
+
+			{
+				type: "measure",
+				category: "STATE",
+				title: "STATE MEASURE 33",
+				voteFor: "Vote for YES or NO",
+				measureText: "​​EXPANDS LOCAL GOVERNMENTS' AUTHORITY TO ENACT RENT CONTROL ON RESIDENTIAL PROPERTY. INITIATIVE STATUTE.​​ Repeals Costa-Hawkins Rental Housing Act of 1995, which currently prohibits local ordinances limiting initial residential rental rates for new tenants or rent increases for existing tenants in certain residential properties. ​​Fiscal Impact:​​ Reduction in local property tax revenues of at least tens of millions of dollars annually due to likely expansion of rent control in some communities. ​​Supporters:​​ CA Nurses Assoc.; CA Alliance for Retired Americans; Mental Health Advocacy; Coalition for Economic Survival; TenantsTogether ​​Opponents:​​ California Council for Affordable Housing; Women Veterans Alliance; California Chamber of Commerce",
+				options: [
+					{
+						name: "YES on Measure 33",
+						description: ""
+					},
+					{
+						name: "NO on Measure 33",
+						description: ""
+					}
+				]
+			},
+
+			{
+				type: "measure",
+				category: "STATE",
+				title: "STATE MEASURE 34",
+				voteFor: "Vote for YES or NO",
+				measureText: "​​​RESTRICTS SPENDING OF PRESCRIPTION DRUG REVENUES BY CERTAIN HEALTH CARE PROVIDERS. INITIATIVE STATUTE.​​ Requires certain providers to spend 98% of revenues from federal discount prescription drug program on direct patient care. Authorizes statewide negotiation of Medi-Cal drug prices. ​​Fiscal Impact:​​ Increased state costs, likely in the millions of dollars annually, to enforce new rules on certain health care entities. Affected entities would pay fees to cover these costs. ​​Supporters:​​ The ALS Association; California Chronic Care Coalition; Latino Heritage Los Angeles ​​Opponents:​​ National Org. for Women; Consumer Watchdog; Coalition for Economic Survival; AIDS Healthcare Foundation; Dolores Huerta",
+				options: [
+					{
+						name: "YES on Measure 34",
+						description: ""
+					},
+					{
+						name: "NO on Measure 34",
+						description: ""
+					}
+				]
+			},
+
+			{
+				type: "measure",
+				category: "STATE",
+				title: "STATE MEASURE 35",
+				voteFor: "Vote for YES or NO",
+				measureText: "​​​​​PROVIDES PERMANENT FUNDING FOR MEDI-CAL HEALTH CARE SERVICES. INITIATIVE STATUTE.​​ Makes permanent the existing tax on managed health care insurance plans, which, if approved by the federal government, provides revenues to pay for Medi-Cal health care services. ​​Fiscal Impact:​​ Short-term state costs between roughly $1 billion and $2 billion annually to increase funding for certain health programs. Total funding increase between roughly $2 billion to $5 billion annually. Unknown long-term fiscal effects. ​​Supporters:​​ Planned Parenthood Affiliates of CA; American College of Obstetricians & Gynecologists; American Academy of Pediatrics, CA ​​Opponents:​​ None submitted.",
+				options: [
+					{
+						name: "YES on Measure 35",
+						description: ""
+					},
+					{
+						name: "NO on Measure 35",
+						description: ""
+					}
+				]
+			},
+
+			{
+				type: "measure",
+				category: "STATE",
+				title: "STATE MEASURE 36",
+				voteFor: "Vote for YES or NO",
+				measureText: "​​​​​​​ALLOWS FELONY CHARGES AND INCREASES SENTENCES FOR CERTAIN DRUG AND THEFT CRIMES. INITIATIVE STATUTE.​​ Allows felony charges for possessing certain drugs and for thefts under $950, if defendant has two prior drug or theft convictions. ​​Fiscal Impact:​​ State criminal justice costs likely ranging from several tens of millions of dollars to the low hundreds of millions of dollars annually. Local criminal justice costs likely in the tens of millions of dollars annually. ​​Supporters:​​ Crime Victims United of California; California District Attorneys Association; Family Business Association of California ​​Opponents:​​ Diana Becton, District Attorney Contra Costa County; Crime Survivors for Safety and Justice",
+				options: [
+					{
+						name: "YES on Measure 36",
+						description: ""
+					},
+					{
+						name: "NO on Measure 36",
+						description: ""
+					}
+				]
+			},
+
+		];
+
+		// Add to existing state management
+		const selections = {};
+		let hasVisitedReviewPage = false;
+
+		const allPages = [...welcomeSequence, ...questions];
+		let currentPage = 0;
+		const answers = new Array(allPages.length).fill(null);
+		const container = document.getElementById('pagesContainer');
+
+		function createPageElement(page, index) {
+			const div = document.createElement('div');
+			div.className = `page-container ${index === 0 ? 'active' : ''}`;
+
+			if (page.type === "review") {
+		div.innerHTML = `
+			<div class="main-container">
+				<div class="top-bar">
+					<button class="top-bar-button">
+						<img src="data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 6V12M12 12V18M12 12H18M12 12H6' stroke='%23666666' stroke-width='2'/%3E%3C/svg%3E">
+						Settings
+					</button>
+					<button class="top-bar-button">
+						<img src="data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z' stroke='%23666666' stroke-width='2'/%3E%3Cpath d='M12 16V12M12 8H12.01' stroke='%23666666' stroke-width='2'/%3E%3C/svg%3E">
+						Help
+					</button>
+				</div>
+				
+				<div class="review-page">
+					<h1>${page.content.title}</h1>
+					<h2>${page.content.subtitle}</h2>
+					<div id="reviewList" class="review-list"></div>
+				</div>
+				
+				<div class="navigation">
+					<button class="nav-button" onclick="previousPage()">← Back</button>
+					<button class="nav-button submit-button" onclick="submitBallot()">Print Ballot</button>
+				</div>
+			</div>
+		`;
+		return div;
+	}
+
+			switch(page.type) {
+				case "welcome":
+					div.innerHTML = `
+						<div class="welcome-page">
+							<div class="welcome-content">
+								<div class="welcome-header">
+									<h1>${page.content.title}</h1>
+									<h2>${page.content.subtitle}</h2>
+								</div>
+								<div class="welcome-year">${page.content.year}</div>
+								<div>
+									<button class="start-circle" onclick="nextPage()"></button>
+									<p>${page.content.startText}</p>
+									<p>${page.content.startTextSpanish}</p>
+								</div>
+								<div class="headphones-icon">🎧</div>
+								<p>For audio, please put on the headphones</p>
+							</div>
+						</div>
+					`;
+					break;
+
+				case "get-started":
+					div.innerHTML = `
+						<div class="main-container">
+							<div class="top-bar">
+								<button class="top-bar-button">
+									<img src="data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 6V12M12 12V18M12 12H18M12 12H6' stroke='%23666666' stroke-width='2'/%3E%3C/svg%3E">
+									Settings
+								</button>
+								<button class="top-bar-button">
+									<img src="data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z' stroke='%23666666' stroke-width='2'/%3E%3Cpath d='M12 16V12M12 8H12.01' stroke='%23666666' stroke-width='2'/%3E%3C/svg%3E">
+									Help
+								</button>
+							</div>
+							
+							<div class="get-started-container">
+								<h1>${page.content.title}</h1>
+								<div class="start-button-container" onclick="nextPage()">
+									${page.content.buttonText}
+									<img class="touch-icon" src="data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8 12H12M12 12H16M12 12V8M12 12V16' stroke='%23000000' stroke-width='2'/%3E%3C/svg%3E">
+								</div>
+							</div>
+							
+							<div class="navigation">
+								<button class="nav-button single-nav-button" onclick="nextPage()">Start →</button>
+							</div>
+						</div>
+					`;
+					break;
+
+				case "instruction":
+					div.innerHTML = `
+						<div class="main-container">
+							<div class="top-bar">
+								<button class="top-bar-button">
+									<img src="data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 6V12M12 12V18M12 12H18M12 12H6' stroke='%23666666' stroke-width='2'/%3E%3C/svg%3E">
+									Settings
+								</button>
+								<button class="top-bar-button">
+									<img src="data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z' stroke='%23666666' stroke-width='2'/%3E%3Cpath d='M12 16V12M12 8H12.01' stroke='%23666666' stroke-width='2'/%3E%3C/svg%3E">
+									Help
+								</button>
+							</div>
+							
+							<div class="instruction-page">
+								<h1 class="instruction-title">${page.content.title}</h1>
+								<p class="instruction-text">${page.content.mainText}</p>
+								<p class="instruction-text">${page.content.subText}</p>
+							</div>
+							
+							<div class="navigation">
+								<button class="nav-button" onclick="previousPage()">← Back</button>
+								<button class="nav-button" onclick="nextPage()">Next →</button>
+							</div>
+						</div>
+					`;
+					break;
+					case "candidate":
+				case "measure":
+					div.innerHTML = `
+						<div class="main-container">
+							<div class="top-bar">
+								<button class="top-bar-button">
+									<img src="data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 6V12M12 12V18M12 12H18M12 12H6' stroke='%23666666' stroke-width='2'/%3E%3C/svg%3E">
+									Settings
+								</button>
+								<button class="top-bar-button">
+									<img src="data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z' stroke='%23666666' stroke-width='2'/%3E%3Cpath d='M12 16V12M12 8H12.01' stroke='%23666666' stroke-width='2'/%3E%3C/svg%3E">
+									Help
+								</button>
+							</div>
+							
+							<div class="header">
+								<div class="contest-number">Contest ${index + 1 - welcomeSequence.length}/${questions.length}</div>
+								<div class="category">${page.category}</div>
+								<div class="title">${page.title}</div>
+								<div class="vote-instructions">
+									<span>${page.voteFor}</span>
+									<span>Selections left: 1</span>
+								</div>
+							</div>
+							
+							${page.type === "measure" ? `<div class="measure-text">${page.measureText}</div>` : ''}
+							
+							<div class="options-wrapper">
+								<div class="options">
+									${page.options.map((option, optionIndex) => `
+										<button class="option-button" onclick="selectOption(${index}, ${optionIndex})">
+											<div class="candidate-name">${option.name}</div>
+											${option.description ? `<div class="candidate-description">${option.description}</div>` : ''}
+										</button>
+									`).join('')}
+									${page.type === "candidate" ? `
+										<div class="write-in-option">
+											<div class="candidate-name">Write-in candidate</div>
+										</div>
+									` : ''}
+								</div>
+							</div>
+							
+							<div class="navigation">
+								<button class="nav-button" onclick="previousPage()">← Back</button>
+								<button class="nav-button" onclick="nextPage()">Next →</button>
+							</div>
+						</div>
+					`;
+					break;
+			}
+			
+			return div;
+		}
+
+		function selectOption(pageIndex, optionIndex) {
+	const pageContainer = document.querySelectorAll('.page-container')[pageIndex];
+	const options = pageContainer.querySelectorAll('.option-button');
+	const page = allPages[pageIndex];
+	
+	options.forEach((option, i) => {
+		if (i === optionIndex) {
+			option.classList.toggle('selected');
+			if (option.classList.contains('selected')) {
+				selections[pageIndex] = {
+					contestNumber: pageIndex - welcomeSequence.length,
+					category: page.category,
+					title: page.title,
+					selection: page.options[optionIndex].name,
+					pageIndex: pageIndex
+				};
+			} else {
+				delete selections[pageIndex];
+			}
+		} else {
+			option.classList.remove('selected');
+		}
+	});
 }
 
 const reviewPage = {
-  type: "review",
-  content: {
-    title: "Review Your Selections",
-    subtitle: "Check your selections before submitting your ballot"
-  }
+	type: "review",
+	content: {
+		title: "Review Your Selections",
+		subtitle: "Check your selections before submitting your ballot"
+	}
 };
 
 allPages.push(reviewPage);
 
-    function previousPage() {
-      if (currentPage > 0) {
-        const current = document.querySelectorAll('.page-container')[currentPage];
-        const previous = document.querySelectorAll('.page-container')[currentPage - 1];
-        
-        current.classList.remove('active');
-        previous.classList.remove('previous');
-        previous.classList.add('active');
-        
-        currentPage--;
-      }
-    }
+		function previousPage() {
+			if (currentPage > 0) {
+				const current = document.querySelectorAll('.page-container')[currentPage];
+				const previous = document.querySelectorAll('.page-container')[currentPage - 1];
+				
+				current.classList.remove('active');
+				previous.classList.remove('previous');
+				previous.classList.add('active');
+				
+				currentPage--;
+			}
+		}
 
-    function updateReviewPage() {
-  const reviewList = document.getElementById('reviewList');
-  if (!reviewList) return;
+		function updateReviewPage() {
+	const reviewList = document.getElementById('reviewList');
+	if (!reviewList) return;
 
-  reviewList.innerHTML = '';
-  const contestCount = questions.length;
-  const selectedCount = Object.keys(selections).length;
+	reviewList.innerHTML = '';
+	const contestCount = questions.length;
+	const selectedCount = Object.keys(selections).length;
 
-  reviewList.innerHTML = `
-    <div class="review-summary">
-      <p>You have made selections for ${selectedCount} out of ${contestCount} contests</p>
-    </div>
-  `;
+	reviewList.innerHTML = `
+		<div class="review-summary">
+			<p>You have made selections for ${selectedCount} out of ${contestCount} contests</p>
+		</div>
+	`;
 
-  Object.values(selections)
-    .sort((a, b) => a.contestNumber - b.contestNumber)
-    .forEach(selection => {
-      const reviewItem = document.createElement('div');
-      reviewItem.className = 'review-item';
-      reviewItem.innerHTML = `
-        <div class="review-contest">
-          <div class="review-contest-header">
-            <span class="review-contest-number">Contest ${selection.contestNumber}</span>
-            <span class="review-category">${selection.category}</span>
-          </div>
-          <div class="review-title">${selection.title}</div>
-          <div class="review-selection">${selection.selection}</div>
-        </div>
-        <button class="change-selection-button" onclick="goToContest(${selection.pageIndex})">
-          Change
-        </button>
-      `;
-      reviewList.appendChild(reviewItem);
-    });
+	Object.values(selections)
+		.sort((a, b) => a.contestNumber - b.contestNumber)
+		.forEach(selection => {
+			const reviewItem = document.createElement('div');
+			reviewItem.className = 'review-item';
+			reviewItem.innerHTML = `
+				<div class="review-contest">
+					<div class="review-contest-header">
+						<span class="review-contest-number">Contest ${selection.contestNumber}</span>
+						<span class="review-category">${selection.category}</span>
+					</div>
+					<div class="review-title">${selection.title}</div>
+					<div class="review-selection">${selection.selection}</div>
+				</div>
+				<button class="change-selection-button" onclick="goToContest(${selection.pageIndex})">
+					Change
+				</button>
+			`;
+			reviewList.appendChild(reviewItem);
+		});
 }
 
 // Function to navigate to a specific contest
 function goToContest(pageIndex) {
-  const pages = document.querySelectorAll('.page-container');
-  pages.forEach(page => {
-    page.classList.remove('active', 'previous');
-  });
-  
-  pages[pageIndex].classList.add('active');
-  currentPage = pageIndex;
+	const pages = document.querySelectorAll('.page-container');
+	pages.forEach(page => {
+		page.classList.remove('active', 'previous');
+	});
+	
+	pages[pageIndex].classList.add('active');
+	currentPage = pageIndex;
 }
 
 // Modified nextPage function to update review page
 function nextPage() {
-  if (currentPage < allPages.length - 1) {
-    const current = document.querySelectorAll('.page-container')[currentPage];
-    const next = document.querySelectorAll('.page-container')[currentPage + 1];
-    
-    current.classList.remove('active');
-    current.classList.add('previous');
-    next.classList.add('active');
-    
-    currentPage++;
-    
-    if (allPages[currentPage].type === 'review') {
-      updateReviewPage();
-    }
-  }
+	if (currentPage < allPages.length - 1) {
+		const current = document.querySelectorAll('.page-container')[currentPage];
+		const next = document.querySelectorAll('.page-container')[currentPage + 1];
+		
+		current.classList.remove('active');
+		current.classList.add('previous');
+		next.classList.add('active');
+		
+		currentPage++;
+		
+		if (allPages[currentPage].type === 'review') {
+			updateReviewPage();
+		}
+	}
 }
 
 // Add submitBallot function
 function submitBallot() {
-  // Add timestamp to the review page
-  const reviewPage = document.querySelector('.review-page');
-  const timestamp = new Date().toLocaleString();
-  reviewPage.setAttribute('data-print-time', timestamp);
+	// Add timestamp to the review page
+	const reviewPage = document.querySelector('.review-page');
+	const timestamp = new Date().toLocaleString();
+	reviewPage.setAttribute('data-print-time', timestamp);
 
-  // Add a small delay to ensure styles are applied
-  setTimeout(() => {
-    // Trigger print dialog
-    window.print();
-  }, 100);
+	// Add a small delay to ensure styles are applied
+	setTimeout(() => {
+		// Trigger print dialog
+		window.print();
+	}, 100);
 }
-    // Initialize pages
-    allPages.forEach((page, index) => {
-      container.appendChild(createPageElement(page, index));
-    });
+		// Initialize pages
+		allPages.forEach((page, index) => {
+			container.appendChild(createPageElement(page, index));
+		});
