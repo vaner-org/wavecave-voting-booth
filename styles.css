@@ -12,7 +12,7 @@ body {
 			width: 100vw;
 			position: fixed;
 			transform: translateX(100vw);
-			transition: transform 0.5s ease-in-out;
+			transition: transform 0.1s ease-in-out;
 			background: #f4f5f7;
 		}
 		
@@ -450,4 +450,183 @@ body {
     font-size: 0.8rem;
     color: #666;
   }
+}
+
+
+/* Update existing body style */
+body {
+    margin: 0;
+    font-family: 'Ambiguity Thrift';
+    background: #f4f5f7;
+    overflow-x: hidden;
+}
+
+/* Add specific styles for dynamic content */
+.candidate-name,
+.candidate-description,
+.measure-text,
+.review-selection,
+.review-title,
+.review-contest-number,
+.review-category,
+.contest-number,
+.category,
+.title,
+.vote-instructions,
+.vote-instructions span,
+.option-button,
+.write-in-option,
+.nav-button,
+.top-bar-button,
+.instruction-title,
+.instruction-text,
+.get-started-container h1,
+.start-button-container,
+.welcome-header h1,
+.welcome-header h2,
+.welcome-year,
+.review-page h1,
+.review-page h2,
+.review-summary,
+.change-selection-button {
+    font-family: 'Ambiguity Thrift';
+}
+
+/* Ensure form elements also use the font */
+button,
+input,
+select,
+textarea {
+    font-family: 'Ambiguity Thrift';
+}
+
+/* Print styles update */
+@media print {
+    .review-page::before,
+    .review-page::after {
+        font-family: 'Ambiguity Thrift';
+    }
+}
+
+
+Updated CSS for Text Formatting
+/* Add these styles to your existing CSS */
+
+.candidate-description {
+    font-size: 0.9rem;
+    color: #333;
+    white-space: pre-line; /* This allows line breaks */
+}
+
+.measure-text {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+    padding: 0 1rem;
+    white-space: pre-line; /* This allows line breaks */
+}
+
+.measure-text strong,
+.vote-instructions strong {
+    font-weight: bold;
+}
+
+/* Update review page styles to handle formatting */
+.review-selection {
+    color: #1338BE;
+    font-size: 0.9rem;
+    white-space: pre-line;
+}
+
+/* Add these new styles to your existing CSS */
+
+.presidential-ticket {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 1.25rem;
+}
+
+.candidate-role {
+    font-size: 0.9rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.party-affiliation {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 0.5rem;
+}
+
+/* Update existing styles */
+.candidate-name {
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+    font-size: 1rem;
+}
+
+.option-button {
+    background: white;
+    border: 1px solid #000;
+    padding: 1rem;
+    text-align: left;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    min-height: 3.5rem;
+    width: 100%;
+}
+
+.option-button.selected {
+    background: #000;
+    color: #fff;
+}
+
+.option-button.selected .candidate-role,
+.option-button.selected .party-affiliation {
+    color: #fff;
+}
+
+.candidate-description {
+    font-size: 0.9rem;
+    color: #333;
+    white-space: pre; /* This will respect the \n literally */
+    line-height: 1.4;
+}
+
+.option-button {
+    background: white;
+    border: 1px solid #000;
+    padding: 1rem;
+    text-align: left;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    min-height: 3.5rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.option-button.selected .candidate-description {
+    color: #fff;
+}
+
+.presidential-ticket {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 1.25rem;
+}
+
+.candidate-name {
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+}
+
+/* Ensure proper spacing in the button */
+.option-button > * {
+    width: 100%;
 }

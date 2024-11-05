@@ -74,11 +74,11 @@
 				options: [
 					{
 						name: "SUZETTE MARTINEZ VALLADARES",
-						description: "Party Preference: Republican      Small Business Owner"
+						description: "Party Preference: Republican\nSmall Business Owner"
 					},
 					{
 						name: "KIPP MUELLER",
-						description: "Party Preference: Democratic      Workers Rights Attorney"
+						description: "Party Preference: Democratic\nWorkers Rights Attorney"
 					},
 				]
 			},  
@@ -91,11 +91,11 @@
 				options: [
 					{
 						name: "PATRICK LEE GIPSON",
-						description: "Party Preference: Republican      Retired Deputy Sheriff"
+						description: "Party Preference: Republican\nRetired Deputy Sheriff"
 					},
 					{
 						name: "PILAR SCHIAVO",
-						description: "Party Preference: Democratic      Assemblywoman"
+						description: "Party Preference: Democratic\nAssemblywoman"
 					},
 				]
 			},  
@@ -107,11 +107,11 @@
 				options: [
 					{
 						name: "MIKE GARCIA",
-						description: "Party Preference: Republican      Congressman/Father"
+						description: "Party Preference: Republican\nCongressman/Father"
 					},
 					{
 						name: "GEORGE WHITESIDES",
-						description: "Party Preference: Democratic      Aerospace Businessman/Father"
+						description: "Party Preference: Democratic\nAerospace Businessman/Father"
 					},
 				]
 			},  
@@ -286,7 +286,7 @@
 				category: "CITY/LOCAL",
 				title: "FIRE PROTECTION SPECIAL TAX MEASURE ELECTION - MEASURE E",
 				voteFor: "Vote for YES or NO",
-				measureText: "​​CONSOLIDATED FIRE PROTECTION DISTRICT OF LOS ANGELES COUNTY EMERGENCY RESPONSE AND INFRASTRUCTURE ORDINANCE.​​ Shall an ordinance ensuring local firefighter/​paramedic emergency response, involving wildfires, house fires, heart attacks, strokes, and car accidents; to hire/​train firefighters/​paramedics, upgrade/​replace aging firefighter safety equipment, fire engines, helicopters, facilities, life-saving rescue tools, and 911 communications technology; by levying 6 cents per square foot of certain parcel improvements, providing $152 million annually, limited to 2% annual adjustment, until ended by voters, exempting low-income seniors, with independent citizens oversight, be adopted? ​​Supporters:​​ Firefighter Alexis Kendricks; AirOps Paramedic Johnny Gray; Assembly Mbr. Freddie Rodriguez; Firefighters IAFF Local 1014 ​​Opponents:​​ Howard Jarvis Taxpayers Association; Mike Antonovich, L.A. County Supervisor (ret.); Jack Humphreville",
+				measureText: "<strong>CONSOLIDATED FIRE PROTECTION DISTRICT OF LOS ANGELES COUNTY EMERGENCY RESPONSE AND INFRASTRUCTURE ORDINANCE.</strong> Shall an ordinance ensuring local firefighter/paramedic emergency response, involving wildfires, house fires, heart attacks, strokes, and car accidents; to hire/train firefighters/paramedics, upgrade/replace aging firefighter safety equipment, fire engines, helicopters, facilities, life-saving rescue tools, and 911 communications technology; by levying 6 cents per square foot of certain parcel improvements, providing $152 million annually, limited to 2% annual adjustment, until ended by voters, exempting low-income seniors, with independent citizens oversight, be adopted? <strong>Supporters:</strong> Firefighter Alexis Kendricks; AirOps Paramedic Johnny Gray; Assembly Mbr. Freddie Rodriguez; Firefighters IAFF Local 1014 <strong>Opponents:</strong> Howard Jarvis Taxpayers Association; Mike Antonovich, L.A. County Supervisor (ret.); Jack Humphreville",
 				options: [
 					{
 						name: "YES on Measure E",
@@ -304,7 +304,7 @@
 				category: "COUNTY",
 				title: "COUNTY MEASURE G",
 				voteFor: "Vote for YES or NO",
-				measureText: "​PROPOSED COUNTY CHARTER AMENDMENT.​​ LOS ANGELES COUNTY GOVERNMENT STRUCTURE, ETHICS AND ACCOUNTABILITY CHARTER AMENDMENT. Shall the measure amending the Los Angeles County Charter to create an elected County Executive; create an independent Ethics Commission to increase restrictions on lobbying and investigate misconduct; establish a nonpartisan Legislative Analyst to review proposed County policies; increase the Board of Supervisors from five to nine elected members; require County departments to present annual budgets in public meetings; using existing funding sources with no additional taxes to implement, as detailed in the charter amendment ordinance, be adopted? ​​Supporters:​​ None submitted. ​​Opponents:​​ LA County Firefighters & Sheriffs; Community Coalition; LA County Supervisors Kathryn Barger & Holly J. Mitchell",
+				measureText: "<strong>PROPOSED COUNTY CHARTER AMENDMENT.</strong> LOS ANGELES COUNTY GOVERNMENT STRUCTURE, ETHICS AND ACCOUNTABILITY CHARTER AMENDMENT. Shall the measure amending the Los Angeles County Charter to create an elected County Executive; create an independent Ethics Commission to increase restrictions on lobbying and investigate misconduct; establish a nonpartisan Legislative Analyst to review proposed County policies; increase the Board of Supervisors from five to nine elected members; require County departments to present annual budgets in public meetings; using existing funding sources with no additional taxes to implement, as detailed in the charter amendment ordinance, be adopted? <strong>Supporters:</strong> None submitted. <strong>Opponents:</strong> LA County Firefighters & Sheriffs; Community Coalition; LA County Supervisors Kathryn Barger & Holly J. Mitchell",
 				options: [
 					{
 						name: "YES on Measure G",
@@ -322,7 +322,7 @@
 				category: "COUNTY",
 				title: "COUNTY MEASURE A",
 				voteFor: "Vote for YES or NO",
-				measureText: "​HOMELESSNESS SERVICES AND AFFORDABLE HOUSING ORDINANCE.​​ To require accountability and results, create affordable housing, support home ownership, provide rental assistance, increase mental health and addiction treatment, reduce and prevent homelessness; and provide services for children, families, veterans, domestic violence survivors, seniors, and disabled people experiencing homelessness; shall the measure repealing the Measure H tax and replacing it with a 1/2 cent sales tax, raising approximately $1,076,076,350 annually until voters decide to end it, with new audits and oversight, be adopted? ​​Supporters:​​ Women's & Children's Crisis Shelter; Habitat for Humanity of Greater Los Angeles; LA Family Housing. ​​Opponents:​​ Howard Jarvis Taxpayers Association; Mike Antonovich, L.A. County Supervisor (ret.); Jack Humphreville",
+				measureText: "<strong>HOMELESSNESS SERVICES AND AFFORDABLE HOUSING ORDINANCE.</strong> To require accountability and results, create affordable housing, support home ownership, provide rental assistance, increase mental health and addiction treatment, reduce and prevent homelessness; and provide services for children, families, veterans, domestic violence survivors, seniors, and disabled people experiencing homelessness; shall the measure repealing the Measure H tax and replacing it with a 1/2 cent sales tax, raising approximately $1,076,076,350 annually until voters decide to end it, with new audits and oversight, be adopted? <strong>Supporters:</strong> Women's & Children's Crisis Shelter; Habitat for Humanity of Greater Los Angeles; LA Family Housing. <strong>Opponents:</strong> Howard Jarvis Taxpayers Association; Mike Antonovich, L.A. County Supervisor (ret.); Jack Humphreville",
 				options: [
 					{
 						name: "YES on Measure A",
@@ -340,7 +340,7 @@
 				category: "STATE",
 				title: "STATE MEASURE 2",
 				voteFor: "Vote for YES or NO",
-				measureText: "​AUTHORIZES BONDS FOR PUBLIC SCHOOL AND COMMUNITY COLLEGE FACILITIES. LEGISLATIVE STATUTE.​​ Authorizes $10 billion in general obligation bonds for repair, upgrade, and construction of facilities at K-12 public schools (including charter schools), community colleges, and career technical education programs, including for improvement of health and safety conditions and classroom upgrades. Requires annual audits. ​​Fiscal Impact:​​ Increased state costs of about $500 million annually for 35 years to repay the bond. ​​Supporters:​​ California Teachers Association; California School Nurses Organization; Community College League of California ​​Opponents:​​ Howard Jarvis Taxpayers Association",
+				measureText: "<strong>AUTHORIZES BONDS FOR PUBLIC SCHOOL AND COMMUNITY COLLEGE FACILITIES. LEGISLATIVE STATUTE.</strong> Authorizes $10 billion in general obligation bonds for repair, upgrade, and construction of facilities at K-12 public schools (including charter schools), community colleges, and career technical education programs, including for improvement of health and safety conditions and classroom upgrades. Requires annual audits. <strong>Fiscal Impact:</strong> Increased state costs of about $500 million annually for 35 years to repay the bond. <strong>Supporters:</strong> California Teachers Association; California School Nurses Organization; Community College League of California <strong>Opponents:</strong> Howard Jarvis Taxpayers Association",
 				options: [
 					{
 						name: "YES on Measure 2",
@@ -358,7 +358,7 @@
 				category: "STATE",
 				title: "STATE MEASURE 3",
 				voteFor: "Vote for YES or NO",
-				measureText: "CONSTITUTIONAL RIGHT TO MARRIAGE. LEGISLATIVE CONSTITUTIONAL AMENDMENT. Amends California Constitution to recognize fundamental right to marry, regardless of sex or race. Removes language in California Constitution stating that marriage is only between a man and a woman. Fiscal Impact: No change in revenues or costs for state and local governments.\n\nSupporters: Sierra Pacific Synod of The Evangelical Lutheran Church in America; Dolores Huerta Foundation; Equality California Opponents: Jonathan Keller, California Family Council; Rev. Tanner DiBella",
+				measureText: "<strong>CONSTITUTIONAL RIGHT TO MARRIAGE. LEGISLATIVE CONSTITUTIONAL AMENDMENT.</strong> Amends California Constitution to recognize fundamental right to marry, regardless of sex or race. Removes language in California Constitution stating that marriage is only between a man and a woman. <strong>Fiscal Impact:</strong> No change in revenues or costs for state and local governments.<strong>\nSupporters:</strong> Sierra Pacific Synod of The Evangelical Lutheran Church in America; Dolores Huerta Foundation; Equality California <strong>Opponents:</strong> Jonathan Keller, California Family Council; Rev. Tanner DiBella",
 				options: [
 					{
 						name: "YES on Measure 3",
@@ -376,7 +376,7 @@
 				category: "STATE",
 				title: "STATE MEASURE 4",
 				voteFor: "Vote for YES or NO",
-				measureText: "​​AUTHORIZES BONDS FOR SAFE DRINKING WATER, WILDFIRE PREVENTION, AND PROTECTING COMMUNITIES AND NATURAL LANDS FROM CLIMATE RISKS. LEGISLATIVE STATUTE.​​ Authorizes $10 billion in general obligation bonds for water, wildfire prevention, and protection of communities and lands. Requires annual audits. ​​Fiscal Impact:​​ Increased state costs of about $400 million annually for 40 years to repay the bond. ​​Supporters:​​ Clean Water Action; CALFIRE Firefighters; National Wildlife Federation; The Nature Conservancy ​​Opponents:​​ Howard Jarvis Taxpayers Association",
+				measureText: "<strong>AUTHORIZES BONDS FOR SAFE DRINKING WATER, WILDFIRE PREVENTION, AND PROTECTING COMMUNITIES AND NATURAL LANDS FROM CLIMATE RISKS. LEGISLATIVE STATUTE.</strong> Authorizes $10 billion in general obligation bonds for water, wildfire prevention, and protection of communities and lands. Requires annual audits. <strong>Fiscal Impact:</strong> Increased state costs of about $400 million annually for 40 years to repay the bond. <strong>Supporters:</strong> Clean Water Action; CALFIRE Firefighters; National Wildlife Federation; The Nature Conservancy <strong>Opponents:</strong> Howard Jarvis Taxpayers Association",
 				options: [
 					{
 						name: "YES on Measure 4",
@@ -394,7 +394,7 @@
 				category: "STATE",
 				title: "STATE MEASURE 5",
 				voteFor: "Vote for YES or NO",
-				measureText: "​​ALLOWS LOCAL BONDS FOR AFFORDABLE HOUSING AND PUBLIC INFRASTRUCTURE WITH 55% VOTER APPROVAL. LEGISLATIVE CONSTITUTIONAL AMENDMENT.​​ Allows approval of local infrastructure and housing bonds for low- and middle-income Californians with 55% vote. Accountability requirements. ​​Fiscal Impact:​​ Increased local borrowing to fund affordable housing, supportive housing, and public infrastructure. The amount would depend on decisions by local governments and voters. Borrowing would be repaid with higher property taxes. ​​Supporters:​​ California Professional Firefighters; League of Women Voters of California; Habitat for Humanity California ​​Opponents:​​ California Taxpayers Association; California Hispanic Chambers of Commerce; Women Veterans Alliance",
+				measureText: "<strong>ALLOWS LOCAL BONDS FOR AFFORDABLE HOUSING AND PUBLIC INFRASTRUCTURE WITH 55% VOTER APPROVAL. LEGISLATIVE CONSTITUTIONAL AMENDMENT.</strong> Allows approval of local infrastructure and housing bonds for low- and middle-income Californians with 55% vote. Accountability requirements. <strong>Fiscal Impact:</strong> Increased local borrowing to fund affordable housing, supportive housing, and public infrastructure. The amount would depend on decisions by local governments and voters. Borrowing would be repaid with higher property taxes. <strong>Supporters:</strong> California Professional Firefighters; League of Women Voters of California; Habitat for Humanity California <strong>Opponents:</strong> California Taxpayers Association; California Hispanic Chambers of Commerce; Women Veterans Alliance",
 				options: [
 					{
 						name: "YES on Measure 5",
@@ -412,7 +412,7 @@
 				category: "STATE",
 				title: "STATE MEASURE 6",
 				voteFor: "Vote for YES or NO",
-				measureText: "​​​ELIMINATES CONSTITUTIONAL PROVISION ALLOWING INVOLUNTARY SERVITUDE FOR INCARCERATED PERSONS. LEGISLATIVE CONSTITUTIONAL AMENDMENT.​​ Amends the California Constitution to remove current provision that allows jails and prisons to impose involuntary servitude to punish crime (i.e., forcing incarcerated persons to work). ​​Fiscal Impact:​​ Potential increase or decrease in state and local costs, depending on how work for people in state prison and county jail changes. Any effect likely would not exceed the tens of millions of dollars annually. ​​Supporters:​​ Assemblymember Lori Wilson ​​Opponents:​​ None submitted.",
+				measureText: "<strong>ELIMINATES CONSTITUTIONAL PROVISION ALLOWING INVOLUNTARY SERVITUDE FOR INCARCERATED PERSONS. LEGISLATIVE CONSTITUTIONAL AMENDMENT.</strong> Amends the California Constitution to remove current provision that allows jails and prisons to impose involuntary servitude to punish crime (i.e., forcing incarcerated persons to work). <strong>Fiscal Impact:</strong> Potential increase or decrease in state and local costs, depending on how work for people in state prison and county jail changes. Any effect likely would not exceed the tens of millions of dollars annually. <strong>Supporters:</strong> Assemblymember Lori Wilson <strong>Opponents:</strong> None submitted.",
 				options: [
 					{
 						name: "YES on Measure 6",
@@ -430,7 +430,7 @@
 				category: "STATE",
 				title: "STATE MEASURE 32",
 				voteFor: "Vote for YES or NO",
-				measureText: "​​RAISES MINIMUM WAGE. INITIATIVE STATUTE.​​ Raises minimum wage as follows: For employers with 26 or more employees, to $17 immediately, $18 on January 1, 2025. For employers with 25 or fewer employees, $17 on January 1, 2025, $18 on January 1, 2026. ​​Fiscal Impact:​​ State and local government costs could increase or decrease by up to hundreds of millions of dollars annually. State and local revenues likely would decrease by no more than a few hundred million dollars annually. ​​Supporters:​​ None submitted. ​​Opponents:​​ California Chamber of Commerce; California Restaurant Association; California Grocers Association",
+				measureText: "<strong>RAISES MINIMUM WAGE. INITIATIVE STATUTE.</strong> Raises minimum wage as follows: For employers with 26 or more employees, to $17 immediately, $18 on January 1, 2025. For employers with 25 or fewer employees, $17 on January 1, 2025, $18 on January 1, 2026. <strong>Fiscal Impact:</strong> State and local government costs could increase or decrease by up to hundreds of millions of dollars annually. State and local revenues likely would decrease by no more than a few hundred million dollars annually. <strong>Supporters:</strong> None submitted. <strong>Opponents:</strong> California Chamber of Commerce; California Restaurant Association; California Grocers Association",
 				options: [
 					{
 						name: "YES on Measure 32",
@@ -448,7 +448,7 @@
 				category: "STATE",
 				title: "STATE MEASURE 33",
 				voteFor: "Vote for YES or NO",
-				measureText: "​​EXPANDS LOCAL GOVERNMENTS' AUTHORITY TO ENACT RENT CONTROL ON RESIDENTIAL PROPERTY. INITIATIVE STATUTE.​​ Repeals Costa-Hawkins Rental Housing Act of 1995, which currently prohibits local ordinances limiting initial residential rental rates for new tenants or rent increases for existing tenants in certain residential properties. ​​Fiscal Impact:​​ Reduction in local property tax revenues of at least tens of millions of dollars annually due to likely expansion of rent control in some communities. ​​Supporters:​​ CA Nurses Assoc.; CA Alliance for Retired Americans; Mental Health Advocacy; Coalition for Economic Survival; TenantsTogether ​​Opponents:​​ California Council for Affordable Housing; Women Veterans Alliance; California Chamber of Commerce",
+				measureText: "<strong>EXPANDS LOCAL GOVERNMENTS' AUTHORITY TO ENACT RENT CONTROL ON RESIDENTIAL PROPERTY. INITIATIVE STATUTE.</strong> Repeals Costa-Hawkins Rental Housing Act of 1995, which currently prohibits local ordinances limiting initial residential rental rates for new tenants or rent increases for existing tenants in certain residential properties. <strong>Fiscal Impact:</strong> Reduction in local property tax revenues of at least tens of millions of dollars annually due to likely expansion of rent control in some communities. <strong>Supporters:</strong> CA Nurses Assoc.; CA Alliance for Retired Americans; Mental Health Advocacy; Coalition for Economic Survival; TenantsTogether <strong>Opponents:</strong> California Council for Affordable Housing; Women Veterans Alliance; California Chamber of Commerce",
 				options: [
 					{
 						name: "YES on Measure 33",
@@ -466,7 +466,7 @@
 				category: "STATE",
 				title: "STATE MEASURE 34",
 				voteFor: "Vote for YES or NO",
-				measureText: "​​​RESTRICTS SPENDING OF PRESCRIPTION DRUG REVENUES BY CERTAIN HEALTH CARE PROVIDERS. INITIATIVE STATUTE.​​ Requires certain providers to spend 98% of revenues from federal discount prescription drug program on direct patient care. Authorizes statewide negotiation of Medi-Cal drug prices. ​​Fiscal Impact:​​ Increased state costs, likely in the millions of dollars annually, to enforce new rules on certain health care entities. Affected entities would pay fees to cover these costs. ​​Supporters:​​ The ALS Association; California Chronic Care Coalition; Latino Heritage Los Angeles ​​Opponents:​​ National Org. for Women; Consumer Watchdog; Coalition for Economic Survival; AIDS Healthcare Foundation; Dolores Huerta",
+				measureText: "<strong>RESTRICTS SPENDING OF PRESCRIPTION DRUG REVENUES BY CERTAIN HEALTH CARE PROVIDERS. INITIATIVE STATUTE.</strong> Requires certain providers to spend 98% of revenues from federal discount prescription drug program on direct patient care. Authorizes statewide negotiation of Medi-Cal drug prices. <strong>Fiscal Impact:</strong> Increased state costs, likely in the millions of dollars annually, to enforce new rules on certain health care entities. Affected entities would pay fees to cover these costs. <strong>Supporters:</strong> The ALS Association; California Chronic Care Coalition; Latino Heritage Los Angeles <strong>Opponents:</strong> National Org. for Women; Consumer Watchdog; Coalition for Economic Survival; AIDS Healthcare Foundation; Dolores Huerta",
 				options: [
 					{
 						name: "YES on Measure 34",
@@ -484,7 +484,7 @@
 				category: "STATE",
 				title: "STATE MEASURE 35",
 				voteFor: "Vote for YES or NO",
-				measureText: "​​​​​PROVIDES PERMANENT FUNDING FOR MEDI-CAL HEALTH CARE SERVICES. INITIATIVE STATUTE.​​ Makes permanent the existing tax on managed health care insurance plans, which, if approved by the federal government, provides revenues to pay for Medi-Cal health care services. ​​Fiscal Impact:​​ Short-term state costs between roughly $1 billion and $2 billion annually to increase funding for certain health programs. Total funding increase between roughly $2 billion to $5 billion annually. Unknown long-term fiscal effects. ​​Supporters:​​ Planned Parenthood Affiliates of CA; American College of Obstetricians & Gynecologists; American Academy of Pediatrics, CA ​​Opponents:​​ None submitted.",
+				measureText: "<strong>PROVIDES PERMANENT FUNDING FOR MEDI-CAL HEALTH CARE SERVICES. INITIATIVE STATUTE.</strong> Makes permanent the existing tax on managed health care insurance plans, which, if approved by the federal government, provides revenues to pay for Medi-Cal health care services. <strong>Fiscal Impact:</strong> Short-term state costs between roughly $1 billion and $2 billion annually to increase funding for certain health programs. Total funding increase between roughly $2 billion to $5 billion annually. Unknown long-term fiscal effects. <strong>Supporters:</strong> Planned Parenthood Affiliates of CA; American College of Obstetricians & Gynecologists; American Academy of Pediatrics, CA <strong>Opponents:</strong> None submitted.",
 				options: [
 					{
 						name: "YES on Measure 35",
@@ -502,7 +502,7 @@
 				category: "STATE",
 				title: "STATE MEASURE 36",
 				voteFor: "Vote for YES or NO",
-				measureText: "​​​​​​​ALLOWS FELONY CHARGES AND INCREASES SENTENCES FOR CERTAIN DRUG AND THEFT CRIMES. INITIATIVE STATUTE.​​ Allows felony charges for possessing certain drugs and for thefts under $950, if defendant has two prior drug or theft convictions. ​​Fiscal Impact:​​ State criminal justice costs likely ranging from several tens of millions of dollars to the low hundreds of millions of dollars annually. Local criminal justice costs likely in the tens of millions of dollars annually. ​​Supporters:​​ Crime Victims United of California; California District Attorneys Association; Family Business Association of California ​​Opponents:​​ Diana Becton, District Attorney Contra Costa County; Crime Survivors for Safety and Justice",
+				measureText: "<strong>ALLOWS FELONY CHARGES AND INCREASES SENTENCES FOR CERTAIN DRUG AND THEFT CRIMES. INITIATIVE STATUTE.</strong> Allows felony charges for possessing certain drugs and for thefts under $950, if defendant has two prior drug or theft convictions. <strong>Fiscal Impact:</strong> State criminal justice costs likely ranging from several tens of millions of dollars to the low hundreds of millions of dollars annually. Local criminal justice costs likely in the tens of millions of dollars annually. <strong>Supporters:</strong> Crime Victims United of California; California District Attorneys Association; Family Business Association of California <strong>Opponents:</strong> Diana Becton, District Attorney Contra Costa County; Crime Survivors for Safety and Justice",
 				options: [
 					{
 						name: "YES on Measure 36",
@@ -637,56 +637,75 @@
 						</div>
 					`;
 					break;
-					case "candidate":
+				case "candidate":
 				case "measure":
-					div.innerHTML = `
-						<div class="main-container">
-							<div class="top-bar">
-								<button class="top-bar-button">
-									<img src="data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 6V12M12 12V18M12 12H18M12 12H6' stroke='%23666666' stroke-width='2'/%3E%3C/svg%3E">
-									Settings
-								</button>
-								<button class="top-bar-button">
-									<img src="data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z' stroke='%23666666' stroke-width='2'/%3E%3Cpath d='M12 16V12M12 8H12.01' stroke='%23666666' stroke-width='2'/%3E%3C/svg%3E">
-									Help
-								</button>
-							</div>
-							
-							<div class="header">
-								<div class="contest-number">Contest ${index + 1 - welcomeSequence.length}/${questions.length}</div>
-								<div class="category">${page.category}</div>
-								<div class="title">${page.title}</div>
-								<div class="vote-instructions">
-									<span>${page.voteFor}</span>
-									<span>Selections left: 1</span>
-								</div>
-							</div>
-							
-							${page.type === "measure" ? `<div class="measure-text">${page.measureText}</div>` : ''}
-							
-							<div class="options-wrapper">
-								<div class="options">
-									${page.options.map((option, optionIndex) => `
-										<button class="option-button" onclick="selectOption(${index}, ${optionIndex})">
-											<div class="candidate-name">${option.name}</div>
-											${option.description ? `<div class="candidate-description">${option.description}</div>` : ''}
-										</button>
-									`).join('')}
-									${page.type === "candidate" ? `
-										<div class="write-in-option">
-											<div class="candidate-name">Write-in candidate</div>
-										</div>
-									` : ''}
-								</div>
-							</div>
-							
-							<div class="navigation">
-								<button class="nav-button" onclick="previousPage()">← Back</button>
-								<button class="nav-button" onclick="nextPage()">Next →</button>
-							</div>
-						</div>
-					`;
-					break;
+				    div.innerHTML = `
+				        <div class="main-container">
+				            <div class="top-bar">
+				                <button class="top-bar-button">
+				                    <img src="data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 6V12M12 12V18M12 12H18M12 12H6' stroke='%23666666' stroke-width='2'/%3E%3C/svg%3E">
+				                    Settings
+				                </button>
+				                <button class="top-bar-button">
+				                    <img src="data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z' stroke='%23666666' stroke-width='2'/%3E%3Cpath d='M12 16V12M12 8H12.01' stroke='%23666666' stroke-width='2'/%3E%3C/svg%3E">
+				                    Help
+				                </button>
+				            </div>
+				            
+				            <div class="header">
+				                <div class="contest-number">Contest ${index + 1 - welcomeSequence.length}/${questions.length}</div>
+				                <div class="category">${page.category}</div>
+				                <div class="title">${page.title}</div>
+				                <div class="vote-instructions">
+				                    <span>${page.voteFor.replace(/YES/g, '<strong>YES</strong>').replace(/NO/g, '<strong>NO</strong>').replace(/ONE/g, '<strong>ONE</strong>')}</span>
+				                    <span>Selections left: 1</span>
+				                </div>
+				            </div>
+				            
+				            ${page.type === "measure" ? `<div class="measure-text">${page.measureText}</div>` : ''}
+				            
+				            <div class="options-wrapper">
+				                <div class="options">
+				                    ${page.options.map((option, optionIndex) => {
+				                        if (page.title.includes("PRESIDENT AND VICE PRESIDENT")) {
+				                            // Special formatting for presidential ticket
+				                            const [president, vicePresident] = option.name.split(" / ");
+				                            const party = option.description.split(" (").pop().replace(")", "");
+				                            return `
+				                                <button class="option-button presidential-ticket" onclick="selectOption(${index}, ${optionIndex})">
+				                                    <div class="candidate-name">${president}</div>
+				                                    <div class="candidate-role">For President</div>
+				                                    <div class="candidate-name">${vicePresident}</div>
+				                                    <div class="candidate-role">For Vice President</div>
+				                                    <div class="party-affiliation">${party}</div>
+				                                </button>
+				                            `;
+				                        // In the regular candidate formatting section:
+} else {
+    // Regular candidate or measure formatting
+    return `
+        <button class="option-button" onclick="selectOption(${index}, ${optionIndex})">
+            <div class="candidate-name">${option.name}</div>
+            ${option.description ? `<div class="candidate-description">${option.description}</div>` : ''}
+        </button>
+    `;
+}
+				                    }).join('')}
+				                    ${page.type === "candidate" ? `
+				                        <div class="write-in-option">
+				                            <div class="candidate-name">Write-in candidate</div>
+				                        </div>
+				                    ` : ''}
+				                </div>
+				            </div>
+				            
+				            <div class="navigation">
+				                <button class="nav-button" onclick="previousPage()">← Back</button>
+				                <button class="nav-button" onclick="nextPage()">Next →</button>
+				            </div>
+				        </div>
+				    `;
+				    break;
 			}
 			
 			return div;
