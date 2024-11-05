@@ -21,7 +21,7 @@
 				type: "instruction",
 				content: {
 					title: "Make your selections",
-					mainText: "There are 28 contests on today's ballot",
+					mainText: "There are 27 contests on today's ballot",
 					subText: "When you reach the end, you will be able to review your selections."
 				}
 			}

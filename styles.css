@@ -1299,6 +1299,7 @@ body {
 .write-in-option.active {
     border-style: solid;
     color: #000;
+    display: none;
 }
 
 .write-in-option.selected {
@@ -1320,7 +1321,7 @@ body {
 
 /* Style the write-in form */
 .write-in-form {
-    margin-top: 0.75rem;
+/*    margin-top: 0.75rem;*/
     display: none; /* Hide by default */
 }
 
