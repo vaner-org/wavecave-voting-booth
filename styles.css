@@ -1256,6 +1256,14 @@ body {
     margin-right: auto;  /* Pushes everything else to the right */
 }
 
+.headphones-icon {
+    margin: 1rem 0;
+}
+
+.headphones-icon img {
+    display: block;
+    margin: 0 auto;
+}
 
 
 

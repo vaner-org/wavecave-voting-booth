@@ -45,7 +45,7 @@
 					},
 					{
 						name: "LINDA HOVIS STORLI",
-						description: "Governing Board Member, William S. Hart Union High School District, Trustee Area 1"
+						description: "Governing Board Member,\nWilliam S. Hart Union High School District, Trustee Area 1"
 					}
 				]
 			},
@@ -544,25 +544,27 @@
 
     switch(page.type) {
         case "welcome":
-            div.innerHTML = `
-                <div class="welcome-page">
-                    <div class="welcome-content">
-                        <div class="welcome-header">
-                            <h1>${page.content.title}</h1>
-                            <h2>${page.content.subtitle}</h2>
-                        </div>
-                        <div class="welcome-year">${page.content.year}</div>
-                        <div>
-                            <button class="start-circle" onclick="nextPage()"></button>
-                            <p>${page.content.startText}</p>
-                            <p>${page.content.startTextSpanish}</p>
-                        </div>
-                        <div class="headphones-icon">🎧</div>
-                        <p>For audio, please put on the headphones</p>
-                    </div>
+    div.innerHTML = `
+        <div class="welcome-page">
+            <div class="welcome-content">
+                <div class="welcome-header">
+                    <h1>${page.content.title}</h1>
+                    <h2>${page.content.subtitle}</h2>
                 </div>
-            `;
-            break;
+                <div class="welcome-year">${page.content.year}</div>
+                <div>
+                    <button class="start-circle" onclick="nextPage()"></button>
+                    <p>${page.content.startText}</p>
+                    <p>${page.content.startTextSpanish}</p>
+                </div>
+                <div class="headphones-icon">
+                    <img src="./headphones.svg" alt="Headphones" width="48" height="48">
+                </div>
+                <p>For audio, please put on the headphones</p>
+            </div>
+        </div>
+    `;
+    break;
 
         case "get-started":
     div.innerHTML = `
