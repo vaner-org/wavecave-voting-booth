@@ -256,11 +256,11 @@
 				options: [
 					{
 						name: "ADAM B. SCHIFF",
-						description: "Party Preference: Democratic      United States Representative"
+						description: "Party Preference: Democratic\nUnited States Representative"
 					},
 					{
 						name: "STEVE GARVEY",
-						description: "Party Preference: Republican      Professional Baseball Representative"
+						description: "Party Preference: Republican\nProfessional Baseball Representative"
 					},
 				]
 			}, 
@@ -273,11 +273,11 @@
 				options: [
 					{
 						name: "ADAM B. SCHIFF",
-						description: "Party Preference: Democratic      United States Representative"
+						description: "Party Preference: Democratic\nUnited States Representative"
 					},
 					{
 						name: "STEVE GARVEY",
-						description: "Party Preference: Republican      Professional Baseball Representative"
+						description: "Party Preference: Republican\nProfessional Baseball Representative"
 					},
 				]
 			}, 
@@ -527,189 +527,216 @@
 		const container = document.getElementById('pagesContainer');
 
 		function createPageElement(page, index) {
-			const div = document.createElement('div');
-			div.className = `page-container ${index === 0 ? 'active' : ''}`;
+    const div = document.createElement('div');
+    div.className = `page-container ${index === 0 ? 'active' : ''}`;
 
-			if (page.type === "review") {
-		div.innerHTML = `
-			<div class="main-container">
-				<div class="top-bar">
-					<button class="top-bar-button">
-						<img src="data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 6V12M12 12V18M12 12H18M12 12H6' stroke='%23666666' stroke-width='2'/%3E%3C/svg%3E">
-						Settings
-					</button>
-					<button class="top-bar-button">
-						<img src="data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z' stroke='%23666666' stroke-width='2'/%3E%3Cpath d='M12 16V12M12 8H12.01' stroke='%23666666' stroke-width='2'/%3E%3C/svg%3E">
-						Help
-					</button>
-				</div>
-				
-				<div class="review-page">
-					<h1>${page.content.title}</h1>
-					<h2>${page.content.subtitle}</h2>
-					<div id="reviewList" class="review-list"></div>
-				</div>
-				
-				<div class="navigation">
-					<button class="nav-button" onclick="previousPage()">← Back</button>
-					<button class="nav-button submit-button" onclick="submitBallot()">Print Ballot</button>
-				</div>
-			</div>
-		`;
-		return div;
-	}
+    // Create a standardized top bar HTML
+    const topBarHtml = `
+        <div class="top-bar">
+            <button class="top-bar-button">
+                <img src="./settings.svg" width="20" height="20" alt="Settings icon">
+                Settings
+            </button>
+            <button class="top-bar-button">
+                <img src="./help.svg" width="20" height="20" alt="Help icon">
+                Help
+            </button>
+        </div>`;
 
-			switch(page.type) {
-				case "welcome":
-					div.innerHTML = `
-						<div class="welcome-page">
-							<div class="welcome-content">
-								<div class="welcome-header">
-									<h1>${page.content.title}</h1>
-									<h2>${page.content.subtitle}</h2>
-								</div>
-								<div class="welcome-year">${page.content.year}</div>
-								<div>
-									<button class="start-circle" onclick="nextPage()"></button>
-									<p>${page.content.startText}</p>
-									<p>${page.content.startTextSpanish}</p>
-								</div>
-								<div class="headphones-icon">🎧</div>
-								<p>For audio, please put on the headphones</p>
-							</div>
-						</div>
-					`;
-					break;
+    switch(page.type) {
+        case "welcome":
+            div.innerHTML = `
+                <div class="welcome-page">
+                    <div class="welcome-content">
+                        <div class="welcome-header">
+                            <h1>${page.content.title}</h1>
+                            <h2>${page.content.subtitle}</h2>
+                        </div>
+                        <div class="welcome-year">${page.content.year}</div>
+                        <div>
+                            <button class="start-circle" onclick="nextPage()"></button>
+                            <p>${page.content.startText}</p>
+                            <p>${page.content.startTextSpanish}</p>
+                        </div>
+                        <div class="headphones-icon">🎧</div>
+                        <p>For audio, please put on the headphones</p>
+                    </div>
+                </div>
+            `;
+            break;
 
-				case "get-started":
-					div.innerHTML = `
-						<div class="main-container">
-							<div class="top-bar">
-								<button class="top-bar-button">
-									<img src="data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 6V12M12 12V18M12 12H18M12 12H6' stroke='%23666666' stroke-width='2'/%3E%3C/svg%3E">
-									Settings
-								</button>
-								<button class="top-bar-button">
-									<img src="data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z' stroke='%23666666' stroke-width='2'/%3E%3Cpath d='M12 16V12M12 8H12.01' stroke='%23666666' stroke-width='2'/%3E%3C/svg%3E">
-									Help
-								</button>
-							</div>
-							
-							<div class="get-started-container">
-								<h1>${page.content.title}</h1>
-								<div class="start-button-container" onclick="nextPage()">
-									${page.content.buttonText}
-									<img class="touch-icon" src="data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8 12H12M12 12H16M12 12V8M12 12V16' stroke='%23000000' stroke-width='2'/%3E%3C/svg%3E">
-								</div>
-							</div>
-							
-							<div class="navigation">
-								<button class="nav-button single-nav-button" onclick="nextPage()">Start →</button>
-							</div>
-						</div>
-					`;
-					break;
+        case "get-started":
+            div.innerHTML = `
+                <div class="main-container">
+                    ${topBarHtml}
+                    <div class="get-started-container">
+                        <h1>${page.content.title}</h1>
+                        <div class="start-button-container" onclick="nextPage()">
+                            ${page.content.buttonText}
+                            <img class="touch-icon" src="data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8 12H12M12 12H16M12 12V8M12 12V16' stroke='%23000000' stroke-width='2'/%3E%3C/svg%3E">
+                        </div>
+                    </div>
+                    <div class="navigation">
+                        <button class="nav-button single-nav-button" onclick="nextPage()">Start →</button>
+                    </div>
+                </div>
+            `;
+            break;
 
-				case "instruction":
-					div.innerHTML = `
-						<div class="main-container">
-							<div class="top-bar">
-								<button class="top-bar-button">
-									<img src="data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 6V12M12 12V18M12 12H18M12 12H6' stroke='%23666666' stroke-width='2'/%3E%3C/svg%3E">
-									Settings
-								</button>
-								<button class="top-bar-button">
-									<img src="data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z' stroke='%23666666' stroke-width='2'/%3E%3Cpath d='M12 16V12M12 8H12.01' stroke='%23666666' stroke-width='2'/%3E%3C/svg%3E">
-									Help
-								</button>
-							</div>
-							
-							<div class="instruction-page">
-								<h1 class="instruction-title">${page.content.title}</h1>
-								<p class="instruction-text">${page.content.mainText}</p>
-								<p class="instruction-text">${page.content.subText}</p>
-							</div>
-							
-							<div class="navigation">
-								<button class="nav-button" onclick="previousPage()">← Back</button>
-								<button class="nav-button" onclick="nextPage()">Next →</button>
-							</div>
-						</div>
-					`;
-					break;
-				case "candidate":
-				case "measure":
-				    div.innerHTML = `
-				        <div class="main-container">
-				            <div class="top-bar">
-				                <button class="top-bar-button">
-				                    <img src="data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 6V12M12 12V18M12 12H18M12 12H6' stroke='%23666666' stroke-width='2'/%3E%3C/svg%3E">
-				                    Settings
-				                </button>
-				                <button class="top-bar-button">
-				                    <img src="data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z' stroke='%23666666' stroke-width='2'/%3E%3Cpath d='M12 16V12M12 8H12.01' stroke='%23666666' stroke-width='2'/%3E%3C/svg%3E">
-				                    Help
-				                </button>
-				            </div>
-				            
-				            <div class="header">
-				                <div class="contest-number">Contest ${index + 1 - welcomeSequence.length}/${questions.length}</div>
-				                <div class="category">${page.category}</div>
-				                <div class="title">${page.title}</div>
-				                <div class="vote-instructions">
-				                    <span>${page.voteFor.replace(/YES/g, '<strong>YES</strong>').replace(/NO/g, '<strong>NO</strong>').replace(/ONE/g, '<strong>ONE</strong>')}</span>
-				                    <span>Selections left: 1</span>
-				                </div>
-				            </div>
-				            
-				            ${page.type === "measure" ? `<div class="measure-text">${page.measureText}</div>` : ''}
-				            
-				            <div class="options-wrapper">
-				                <div class="options">
-				                    ${page.options.map((option, optionIndex) => {
-				                        if (page.title.includes("PRESIDENT AND VICE PRESIDENT")) {
-				                            // Special formatting for presidential ticket
-				                            const [president, vicePresident] = option.name.split(" / ");
-				                            const party = option.description.split(" (").pop().replace(")", "");
-				                            return `
-				                                <button class="option-button presidential-ticket" onclick="selectOption(${index}, ${optionIndex})">
-				                                    <div class="candidate-name">${president}</div>
-				                                    <div class="candidate-role">For President</div>
-				                                    <div class="candidate-name">${vicePresident}</div>
-				                                    <div class="candidate-role">For Vice President</div>
-				                                    <div class="party-affiliation">${party}</div>
-				                                </button>
-				                            `;
-				                        // In the regular candidate formatting section:
-} else {
-    // Regular candidate or measure formatting
-    return `
-        <button class="option-button" onclick="selectOption(${index}, ${optionIndex})">
-            <div class="candidate-name">${option.name}</div>
-            ${option.description ? `<div class="candidate-description">${option.description}</div>` : ''}
-        </button>
+        case "instruction":
+            div.innerHTML = `
+                <div class="main-container">
+                    ${topBarHtml}
+                    <div class="instruction-page">
+                        <h1 class="instruction-title">${page.content.title}</h1>
+                        <p class="instruction-text">${page.content.mainText}</p>
+                        <p class="instruction-text">${page.content.subText}</p>
+                    </div>
+                    <div class="navigation">
+                        <button class="nav-button" onclick="previousPage()">← Back</button>
+                        <button class="nav-button" onclick="nextPage()">Next →</button>
+                    </div>
+                </div>
+            `;
+            break;
+
+        case "candidate":
+
+case "measure":
+
+    div.innerHTML = `
+
+        <div class="main-container">
+
+            
+        		${topBarHtml}
+            
+
+            <div class="header">
+
+                <div class="contest-number">Contest ${index + 1 - welcomeSequence.length}/${questions.length}</div>
+
+                <div class="category">${page.category}</div>
+
+                <div class="title">${page.title}</div>
+
+                <div class="vote-instructions">
+
+                    <span>${page.voteFor.replace(/YES/g, '<strong>YES</strong>').replace(/NO/g, '<strong>NO</strong>').replace(/ONE/g, '<strong>ONE</strong>')}</span>
+
+                    <span>Selections left: 1</span>
+
+                </div>
+
+            </div>
+
+            
+
+            <div class="content-wrapper">
+
+                <div class="options-wrapper">
+
+                    <div class="options">
+
+                        ${page.options.map((option, optionIndex) => {
+
+                            if (page.title.includes("PRESIDENT AND VICE PRESIDENT")) {
+
+                                const [president, vicePresident] = option.name.split(" / ");
+
+                                const party = option.description.split(" (").pop().replace(")", "");
+
+                                return `
+
+                                    <button class="option-button presidential-ticket" onclick="selectOption(${index}, ${optionIndex})">
+
+                                        <div class="candidate-name">${president}</div>
+
+                                        <div class="candidate-role">For President</div>
+
+                                        <div class="candidate-name">${vicePresident}</div>
+
+                                        <div class="candidate-role">For Vice President</div>
+
+                                        <div class="party-affiliation">${party}</div>
+
+                                    </button>
+
+                                `;
+
+                            } else {
+
+                                return `
+
+                                    <button class="option-button" onclick="selectOption(${index}, ${optionIndex})">
+
+                                        <div class="candidate-name">${option.name}</div>
+
+                                        ${option.description ? `<div class="candidate-description">${option.description}</div>` : ''}
+
+                                    </button>
+
+                                `;
+
+                            }
+
+                        }).join('')}
+
+                        ${page.type === "candidate" ? `
+
+                            <div class="write-in-option">
+
+                                <div class="candidate-name">Write-in candidate</div>
+
+                            </div>
+
+                        ` : ''}
+
+                    </div>
+
+                </div>
+
+                ${page.type === "measure" ? `<div class="measure-text">${page.measureText}</div>` : ''}
+
+            </div>
+
+            
+
+            <div class="navigation">
+
+                <button class="nav-button" onclick="previousPage()">← Back</button>
+
+                <button class="nav-button" onclick="nextPage()">Next →</button>
+
+            </div>
+
+        </div>
+
     `;
+
+    break;
+
+
+        case "review":
+            div.innerHTML = `
+                <div class="main-container">
+                    ${topBarHtml}
+                    <div class="review-page">
+                        <h1>${page.content.title}</h1>
+                        <h2>${page.content.subtitle}</h2>
+                        <div id="reviewList" class="review-list"></div>
+                    </div>
+                    <div class="navigation">
+                        <button class="nav-button" onclick="previousPage()">← Back</button>
+                        <button class="nav-button submit-button" onclick="submitBallot()">Print Ballot</button>
+                    </div>
+                </div>
+            `;
+            break;
+    }
+
+    return div;
 }
-				                    }).join('')}
-				                    ${page.type === "candidate" ? `
-				                        <div class="write-in-option">
-				                            <div class="candidate-name">Write-in candidate</div>
-				                        </div>
-				                    ` : ''}
-				                </div>
-				            </div>
-				            
-				            <div class="navigation">
-				                <button class="nav-button" onclick="previousPage()">← Back</button>
-				                <button class="nav-button" onclick="nextPage()">Next →</button>
-				            </div>
-				        </div>
-				    `;
-				    break;
-			}
-			
-			return div;
-		}
 
 		function selectOption(pageIndex, optionIndex) {
 	const pageContainer = document.querySelectorAll('.page-container')[pageIndex];
