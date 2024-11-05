@@ -1000,10 +1000,9 @@ function updateBallotSummary() {
     });
 }
 
-// Modify the existing submitBallot function
 function submitBallot() {
-    // Hide the review page
-    document.querySelector('.review-page').style.display = 'none';
+    // Hide the confirmation page
+    document.querySelector('.print-confirmation-page').style.display = 'none';
     
     // Show and update the ballot summary
     const ballotSummary = document.querySelector('.ballot-summary-page') || 
@@ -1016,12 +1015,17 @@ function submitBallot() {
     ballotSummary.setAttribute('data-print-time', timestamp);
     
     // Trigger print
+    window.print();
+    
+    // After print dialog closes, reload the page
+    window.addEventListener('afterprint', () => {
+        window.location.reload();
+    }, { once: true });
+    
+    // Fallback: use setTimeout in case afterprint event isn't supported
     setTimeout(() => {
-        window.print();
-        // Hide ballot summary and show review page after printing
-        ballotSummary.style.display = 'none';
-        document.querySelector('.review-page').style.display = 'block';
-    }, 100);
+        window.location.reload();
+    }, 1000);
 }
 
 function toggleWriteIn(pageIndex) {
