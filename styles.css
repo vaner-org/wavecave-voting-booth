@@ -1854,11 +1854,21 @@ body {
 
 
 /* Write-in form container adjustments */
-.write-in-form {
-    display: none; /* Hide by default */
-    max-width: 100%; /* Ensure form doesn't overflow container */
-    box-sizing: border-box; /* Include padding in width calculation */
-/*    margin: 0.75rem 0; /* Remove horizontal margin to align with other options */*/
+.write-in-option {
+    background: white;
+    border: 3px dashed #000; /* Change from dotted to dashed for more spacing */
+    border-style: dashed;    /* Explicitly set style */
+    border-spacing: 2px;     /* Add border spacing */
+    padding: 1rem 3rem;
+    text-align: left;
+    font-size: 1rem;
+    cursor: pointer;
+    min-height: 3.5rem;
+    width: 100%;
+    color: #666;
+    position: relative;
+    box-sizing: border-box;
+    margin: 0;
 }
 
 /* Form content wrapper adjustments */
