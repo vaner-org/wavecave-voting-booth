@@ -1672,3 +1672,26 @@ body {
     width: 100%;
     padding-right: 1rem;  /* Add some right padding for better text alignment */
 }
+/* Remove padding from options wrapper */
+.options-wrapper {
+    margin: 0;
+    padding: 0;
+}
+
+/* Update options container to have edge-to-edge border */
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 0.5rem 1rem 1rem 1rem;
+    margin: 0;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Update measure text to align with edges */
+.measure-text {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    padding: 1rem;
+    margin: 0;
+}

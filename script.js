@@ -606,79 +606,79 @@
             break;
 
         case "candidate":
-        case "measure":
-            div.innerHTML = `
-                <div class="main-container">
-                    ${topBarHtml}
-                    <div class="header">
-                        <div class="contest-number">Contest ${index + 1 - welcomeSequence.length}/${questions.length}</div>
-                        <div class="category">${page.category}</div>
-                        <div class="title">${page.title}</div>
-                        <div class="vote-instructions">
-                            <span>${page.voteFor.replace(/YES/g, '<strong>YES</strong>').replace(/NO/g, '<strong>NO</strong>').replace(/ONE/g, '<strong>ONE</strong>')}</span>
-                            <span>Selections left: 1</span>
-                        </div>
-                    </div>
-                    
-                    <div class="content-wrapper">
-                        <div class="options-wrapper">
-                            <div class="options">
-                                ${page.options.map((option, optionIndex) => {
-                                    if (page.title.includes("PRESIDENT AND VICE PRESIDENT")) {
-                                        const [president, vicePresident] = option.name.split(" / ");
-                                        const party = option.description.split(" (").pop().replace(")", "");
-                                        return `
-                                            <button class="option-button presidential-ticket" onclick="selectOption(${index}, ${optionIndex})">
-                                                <div class="candidate-name">${president}</div>
-                                                <div class="candidate-role">For President</div>
-                                                <div class="candidate-name">${vicePresident}</div>
-                                                <div class="candidate-role">For Vice President</div>
-                                                <div class="party-affiliation">${party}</div>
-                                            </button>
-                                        `;
-                                    } else {
-                                        return `
-                                            <button class="option-button" onclick="selectOption(${index}, ${optionIndex})">
-                                                <div class="candidate-name">${option.name}</div>
-                                                ${option.description ? `<div class="candidate-description">${option.description}</div>` : ''}
-                                            </button>
-                                        `;
-                                    }
-                                }).join('')}
-                                
-                                ${page.type === "candidate" ? `
-                                    <div class="write-in-option">
-                                        <div class="candidate-name">Write-in candidate</div>
-                                    </div>
+				case "measure":
+				    div.innerHTML = `
+				        <div class="main-container">
+				            ${topBarHtml}
+				            <div class="header">
+				                <div class="contest-number">Contest ${index + 1 - welcomeSequence.length}/${questions.length}</div>
+				                <div class="category">${page.category}</div>
+				                <div class="title">${page.title}</div>
+				                <div class="vote-instructions">
+				                    <span>${page.voteFor.replace(/YES/g, '<strong>YES</strong>').replace(/NO/g, '<strong>NO</strong>').replace(/ONE/g, '<strong>ONE</strong>')}</span>
+				                    <span>Selections left: 1</span>
+				                </div>
+				            </div>
+				            
+				            <div class="content-wrapper">
+				                <div class="options-wrapper">
+				                    <div class="options">
+				                        ${page.options.map((option, optionIndex) => {
+				                            if (page.title.includes("PRESIDENT AND VICE PRESIDENT")) {
+				                                const [president, vicePresident] = option.name.split(" / ");
+				                                const party = option.description.split(" (").pop().replace(")", "");
+				                                return `
+				                                    <button class="option-button presidential-ticket" onclick="selectOption(${index}, ${optionIndex})">
+				                                        <div class="candidate-name">${president}</div>
+				                                        <div class="candidate-role">For President</div>
+				                                        <div class="candidate-name">${vicePresident}</div>
+				                                        <div class="candidate-role">For Vice President</div>
+				                                        <div class="party-affiliation">${party}</div>
+				                                    </button>
+				                                `;
+				                            } else {
+				                                return `
+				                                    <button class="option-button" onclick="selectOption(${index}, ${optionIndex})">
+				                                        <div class="candidate-name">${option.name}</div>
+				                                        ${option.description ? `<div class="candidate-description">${option.description}</div>` : ''}
+				                                    </button>
+				                                `;
+				                            }
+				                        }).join('')}
+				                        
+				                        ${page.type === "candidate" ? `
+				                            <div class="write-in-option">
+				                                <div class="candidate-name">Write-in candidate</div>
+				                            </div>
 
-                                    <div class="write-in-form" style="display: none;">
-                                        <form class="write-in-form-content">
-                                            <div class="form-group">
-                                                <label>Candidate Name</label>
-                                                <input type="text" class="write-in-name" required>
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Description (optional)</label>
-                                                <input type="text" class="write-in-description">
-                                            </div>
-                                            <div class="form-buttons">
-                                                <button type="button" class="write-in-cancel">Cancel</button>
-                                                <button type="submit" class="write-in-submit">Submit</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                ` : ''}
-                            </div>
-                        </div>
-                        ${page.type === "measure" ? `<div class="measure-text">${page.measureText}</div>` : ''}
-                    </div>
-                    
-                    <div class="navigation">
-                        <button class="nav-button" onclick="previousPage()">← Back</button>
-                        <button class="nav-button" onclick="nextPage()">Next →</button>
-                    </div>
-                </div>
-            `;
+				                            <div class="write-in-form" style="display: none;">
+				                                <form class="write-in-form-content">
+				                                    <div class="form-group">
+				                                        <label>Candidate Name</label>
+				                                        <input type="text" class="write-in-name" required>
+				                                    </div>
+				                                    <div class="form-group">
+				                                        <label>Description (optional)</label>
+				                                        <input type="text" class="write-in-description">
+				                                    </div>
+				                                    <div class="form-buttons">
+				                                        <button type="button" class="write-in-cancel">Cancel</button>
+				                                        <button type="submit" class="write-in-submit">Submit</button>
+				                                    </div>
+				                                </form>
+				                            </div>
+				                        ` : ''}
+				                    </div>
+				                    ${page.type === "measure" ? `<div class="measure-text">${page.measureText}</div>` : ''}
+				                </div>
+				            </div>
+				            
+				            <div class="navigation">
+				                <button class="nav-button" onclick="previousPage()">← Back</button>
+				                <button class="nav-button" onclick="nextPage()">Next →</button>
+				            </div>
+				        </div>
+				    `;
 
             // Add event listeners after creating the elements
             if (page.type === "candidate") {
