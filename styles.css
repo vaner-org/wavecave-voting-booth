@@ -1337,7 +1337,6 @@ body {
 .write-in-option.active {
     border-style: solid;
     color: #000;
-    display: none;
 }
 
 .write-in-option.selected {

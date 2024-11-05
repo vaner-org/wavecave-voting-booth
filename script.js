@@ -773,14 +773,22 @@
 		function selectOption(pageIndex, optionIndex) {
     const pageContainer = document.querySelectorAll('.page-container')[pageIndex];
     const options = pageContainer.querySelectorAll('.option-button');
+    const writeInOption = pageContainer.querySelector('.write-in-option');
+    const writeInForm = pageContainer.querySelector('.write-in-form');
     const page = allPages[pageIndex];
+    
+    // Hide write-in form when selecting a regular option
+    if (writeInForm) {
+        writeInForm.style.display = 'none';
+        writeInOption.classList.remove('active', 'selected');
+    }
     
     options.forEach((option, i) => {
         if (i === optionIndex) {
             option.classList.toggle('selected');
             if (option.classList.contains('selected')) {
                 selections[pageIndex] = {
-                    contestNumber: pageIndex - welcomeSequence.length + 1, // Added +1 to fix numbering
+                    contestNumber: pageIndex - welcomeSequence.length + 1,
                     category: page.category,
                     title: page.title,
                     selection: page.options[optionIndex].name,
@@ -795,14 +803,52 @@
     });
 }
 
-// Also need to update the write-in submission logic to match
+// Add these new functions for write-in handling
+function toggleWriteIn(pageIndex) {
+    const pageContainer = document.querySelectorAll('.page-container')[pageIndex];
+    const writeInOption = pageContainer.querySelector('.write-in-option');
+    const writeInForm = pageContainer.querySelector('.write-in-form');
+    const options = pageContainer.querySelectorAll('.option-button');
+    
+    // Deselect regular options
+    options.forEach(opt => opt.classList.remove('selected'));
+    delete selections[pageIndex];
+    
+    // Reset write-in form display
+    writeInForm.style.display = writeInForm.style.display === 'none' ? 'block' : 'none';
+    writeInOption.classList.toggle('active');
+    writeInOption.classList.remove('selected');
+    
+    // Clear form fields if hiding the form
+    if (writeInForm.style.display === 'none') {
+        const nameInput = writeInForm.querySelector('.write-in-name');
+        const descriptionInput = writeInForm.querySelector('.write-in-description');
+        if (nameInput) nameInput.value = '';
+        if (descriptionInput) descriptionInput.value = '';
+    }
+}
+
+function cancelWriteIn(pageIndex) {
+    const pageContainer = document.querySelectorAll('.page-container')[pageIndex];
+    const writeInOption = pageContainer.querySelector('.write-in-option');
+    const writeInForm = pageContainer.querySelector('.write-in-form');
+    
+    writeInForm.style.display = 'none';
+    writeInOption.classList.remove('active', 'selected');
+    const nameInput = writeInForm.querySelector('.write-in-name');
+    const descriptionInput = writeInForm.querySelector('.write-in-description');
+    if (nameInput) nameInput.value = '';
+    if (descriptionInput) descriptionInput.value = '';
+    delete selections[pageIndex];
+}
+
 function submitWriteIn(event, pageIndex) {
     event.preventDefault();
     const pageContainer = document.querySelectorAll('.page-container')[pageIndex];
     const writeInOption = pageContainer.querySelector('.write-in-option');
     const writeInForm = pageContainer.querySelector('.write-in-form');
-    const nameInput = pageContainer.querySelector('.write-in-name');
-    const descriptionInput = pageContainer.querySelector('.write-in-description');
+    const nameInput = writeInForm.querySelector('.write-in-name');
+    const descriptionInput = writeInForm.querySelector('.write-in-description');
     const page = allPages[pageIndex];
     
     const name = nameInput.value.trim();
@@ -810,7 +856,7 @@ function submitWriteIn(event, pageIndex) {
     
     if (name) {
         selections[pageIndex] = {
-            contestNumber: pageIndex - welcomeSequence.length + 1, // Added +1 to fix numbering
+            contestNumber: pageIndex - welcomeSequence.length + 1,
             category: page.category,
             title: page.title,
             selection: name,
@@ -821,6 +867,10 @@ function submitWriteIn(event, pageIndex) {
         writeInForm.style.display = 'none';
         writeInOption.classList.add('selected');
         writeInOption.classList.remove('active');
+        
+        // Reset form fields
+        nameInput.value = '';
+        descriptionInput.value = '';
     }
 }
 
@@ -1026,32 +1076,6 @@ function submitBallot() {
     setTimeout(() => {
         window.location.reload();
     }, 1000);
-}
-
-function toggleWriteIn(pageIndex) {
-    const pageContainer = document.querySelectorAll('.page-container')[pageIndex];
-    const writeInOption = pageContainer.querySelector('.write-in-option');
-    const writeInForm = pageContainer.querySelector('.write-in-form');
-    const options = pageContainer.querySelectorAll('.option-button');
-    
-    // Deselect regular options
-    options.forEach(opt => opt.classList.remove('selected'));
-    delete selections[pageIndex];
-    
-    // Toggle write-in form
-    writeInForm.style.display = writeInForm.style.display === 'none' ? 'block' : 'none';
-    writeInOption.classList.toggle('active');
-}
-
-function cancelWriteIn(pageIndex) {
-    const pageContainer = document.querySelectorAll('.page-container')[pageIndex];
-    const writeInOption = pageContainer.querySelector('.write-in-option');
-    const writeInForm = pageContainer.querySelector('.write-in-form');
-    
-    writeInForm.style.display = 'none';
-    writeInOption.classList.remove('active', 'selected');
-    pageContainer.querySelector('.write-in-name').value = '';
-    pageContainer.querySelector('.write-in-description').value = '';
 }
 
 		// Initialize pages
