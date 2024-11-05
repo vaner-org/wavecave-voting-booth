@@ -1856,7 +1856,7 @@ body {
 /* Write-in form container adjustments */
 .write-in-option {
     background: white;
-    border: 3px dashed #000; /* Change from dotted to dashed for more spacing */
+    border: 2px dashed #000; /* Change from dotted to dashed for more spacing */
     border-style: dashed;    /* Explicitly set style */
     border-spacing: 2px;     /* Add border spacing */
     padding: 1rem 3rem;
@@ -1948,4 +1948,96 @@ body {
 .write-in-form {
     width: 100%;
     box-sizing: border-box;
+}
+
+
+/* Base option button styles */
+.option-button {
+    background: white;
+    border: 3px solid #000;
+    padding: 1.5rem 3rem;  /* Increased padding for more height */
+    text-align: left;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    min-height: 5rem;     /* Set minimum height */
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Presidential ticket specific adjustments */
+.presidential-ticket {
+    min-height: 8rem;    /* Larger minimum height for presidential tickets */
+    padding: 1.5rem 3rem;
+}
+
+/* Write-in option styles */
+.write-in-option {
+    background: white;
+    border: 2px dashed #000;
+    padding: 1.5rem 3rem;
+    text-align: left;
+    font-size: 1rem;
+    cursor: pointer;
+    min-height: 5rem;    /* Match regular option buttons */
+    width: 100%;
+    color: #666;
+    position: relative;
+    box-sizing: border-box;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Write-in form adjustments */
+.write-in-form-content {
+    border: 3px solid #000;
+    padding: 1.5rem;
+    background: white;
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 5rem;    /* Match other buttons */
+}
+
+/* Ensure content within buttons is properly aligned */
+.candidate-name,
+.candidate-description,
+.candidate-role,
+.party-affiliation {
+    width: 100%;
+    padding-right: 1rem;
+}
+
+/* Selected state styling */
+.option-button.selected,
+.write-in-option.selected {
+    background: #000;
+    color: #fff;
+    padding-left: 3rem;
+}
+
+/* Selected state icon positioning */
+.option-button.selected::before,
+.write-in-option.selected::before {
+    content: "";
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1.2rem;
+    height: 1.2rem;
+    background-image: url('check.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+/* Adjust description text color in selected state */
+.option-button.selected .candidate-description,
+.option-button.selected .candidate-role,
+.option-button.selected .party-affiliation {
+    color: #fff;
 }
