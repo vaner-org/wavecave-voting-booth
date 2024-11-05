@@ -325,14 +325,6 @@ body {
   margin-bottom: 2rem;
 }
 
-.review-summary {
-  background: #f4f5f7;
-  padding: 1rem;
-  margin-bottom: 1.5rem;
-  border-radius: 4px;
-  font-size: 0.9rem;
-  color: #666;
-}
 
 .review-list {
   display: flex;
@@ -830,17 +822,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-/* Keep the review summary distinct but lighter */
-.review-summary {
-    background: #fff;
-    border: 1px solid #ddd;
-    padding: 1rem;
-    margin-bottom: 1.5rem;
-    border-radius: 4px;
-    font-size: 0.9rem;
-    color: #666;
 }
 
 .top-bar {
@@ -1694,4 +1675,177 @@ body {
     line-height: 1.4;
     padding: 1rem;
     margin: 0;
+}
+
+
+
+
+/* Styles ONLY for the non-voting pages */
+.get-started-container h1,
+.instruction-page h1,
+.review-page h1,
+.print-confirmation-page h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 3rem 0 0.5rem 0;  /* Push heading down and add space below */
+    padding: 1rem;
+    border-bottom: none;
+    text-align: center;
+}
+
+.get-started-container h2,
+.instruction-page h2,
+.review-page h2,
+.print-confirmation-page h2 {
+    font-size: 1.1rem;
+    color: #666;
+    margin: 0;
+    padding: 0.5rem 1rem 2rem 1rem;
+    text-align: center;
+    border: none;
+}
+
+/* Ensure the containers themselves don't affect layout */
+.get-started-container,
+.instruction-page,
+.review-page,
+.print-confirmation-page {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+}
+
+/* Instruction text specific centering */
+.instruction-page .instruction-text {
+    text-align: center;
+    margin: 0;
+    padding: 1rem;
+    color: #666;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 480px) {
+    .get-started-container h1,
+    .instruction-page h1,
+    .review-page h1,
+    .print-confirmation-page h1 {
+        font-size: 1.8rem;
+    }
+}
+
+/* Update review summary to be the main status message */
+.review-summary {
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    margin: 0 1rem 1.5rem 1rem;
+    border-radius: 4px;
+    font-size: 1.1rem;  /* Increased from 0.9rem to match other subtitles */
+    color: #666;
+    text-align: center;
+}
+
+/* Rest of the review page styles remain the same */
+.review-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 0 1rem 1rem 1rem;
+}
+
+.review-item {
+    background: #fff;
+    border: 1px solid #000;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Update all option buttons to have 3px borders */
+.option-button {
+    border: 3px solid #000;
+}
+
+.option-button.selected {
+    border: 3px solid #000;
+}
+
+/* Update write-in options */
+.write-in-option {
+    border: 3px dotted #000;
+}
+
+.write-in-option.selected {
+    border: 3px solid #000;
+}
+
+/* Update write-in form */
+.write-in-form-content {
+    border: 3px solid #000;
+}
+
+/* Update review items */
+.review-item {
+    border: 3px solid #000;
+}
+
+/* Update nav buttons */
+.nav-button {
+    border: 3px solid #000;
+}
+
+/* Update start button container */
+.start-button-container {
+    border: 3px solid #000;
+}
+/* Create a container for the review summary that allows edge-to-edge line */
+.review-summary {
+    border: none;
+    padding: 0;
+    margin: 0;
+    font-size: 1.1rem;
+    color: #666;
+    text-align: center;
+    position: relative;
+    overflow: hidden; /* Prevent horizontal scroll */
+}
+
+/* Add the edge-to-edge line below the heading */
+.review-summary::after {
+    content: '';
+    display: block;
+    position: absolute;
+    height: 1px;
+    background-color: #ddd;
+    margin-top: 1rem;
+    width: 100%;
+    left: -100vw;
+    right: -100vw;
+    padding: 0 100vw; /* This extends the background */
+}
+
+/* Add spacing below the line */
+.review-summary {
+    padding-bottom: 2rem; /* Space for the line and gap below it */
+}
+
+/* Format the review page header like other non-voting pages */
+.review-page h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 3rem 0 0.5rem 0;
+    padding: 1rem;
+    border-bottom: none;
+    text-align: center;
+}
+
+.review-page h2 {
+    font-size: 1.1rem;
+    color: #666;
+    margin: 0;
+    padding: 0.5rem 1rem 0 1rem;
+    text-align: center;
+    border: none;
 }

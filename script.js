@@ -732,7 +732,6 @@
                     ${topBarHtml}
                     <div class="review-page">
                         <h1>${page.content.title}</h1>
-                        <h2>${page.content.subtitle}</h2>
                         <div id="reviewList" class="review-list"></div>
                     </div>
                     <div class="navigation">
@@ -772,28 +771,57 @@
 }
 
 		function selectOption(pageIndex, optionIndex) {
-	const pageContainer = document.querySelectorAll('.page-container')[pageIndex];
-	const options = pageContainer.querySelectorAll('.option-button');
-	const page = allPages[pageIndex];
-	
-	options.forEach((option, i) => {
-		if (i === optionIndex) {
-			option.classList.toggle('selected');
-			if (option.classList.contains('selected')) {
-				selections[pageIndex] = {
-					contestNumber: pageIndex - welcomeSequence.length,
-					category: page.category,
-					title: page.title,
-					selection: page.options[optionIndex].name,
-					pageIndex: pageIndex
-				};
-			} else {
-				delete selections[pageIndex];
-			}
-		} else {
-			option.classList.remove('selected');
-		}
-	});
+    const pageContainer = document.querySelectorAll('.page-container')[pageIndex];
+    const options = pageContainer.querySelectorAll('.option-button');
+    const page = allPages[pageIndex];
+    
+    options.forEach((option, i) => {
+        if (i === optionIndex) {
+            option.classList.toggle('selected');
+            if (option.classList.contains('selected')) {
+                selections[pageIndex] = {
+                    contestNumber: pageIndex - welcomeSequence.length + 1, // Added +1 to fix numbering
+                    category: page.category,
+                    title: page.title,
+                    selection: page.options[optionIndex].name,
+                    pageIndex: pageIndex
+                };
+            } else {
+                delete selections[pageIndex];
+            }
+        } else {
+            option.classList.remove('selected');
+        }
+    });
+}
+
+// Also need to update the write-in submission logic to match
+function submitWriteIn(event, pageIndex) {
+    event.preventDefault();
+    const pageContainer = document.querySelectorAll('.page-container')[pageIndex];
+    const writeInOption = pageContainer.querySelector('.write-in-option');
+    const writeInForm = pageContainer.querySelector('.write-in-form');
+    const nameInput = pageContainer.querySelector('.write-in-name');
+    const descriptionInput = pageContainer.querySelector('.write-in-description');
+    const page = allPages[pageIndex];
+    
+    const name = nameInput.value.trim();
+    const description = descriptionInput.value.trim();
+    
+    if (name) {
+        selections[pageIndex] = {
+            contestNumber: pageIndex - welcomeSequence.length + 1, // Added +1 to fix numbering
+            category: page.category,
+            title: page.title,
+            selection: name,
+            description: description,
+            isWriteIn: true,
+            pageIndex: pageIndex
+        };
+        writeInForm.style.display = 'none';
+        writeInOption.classList.add('selected');
+        writeInOption.classList.remove('active');
+    }
 }
 
 // Modified reviewPage definition to change the Print button to Next
@@ -801,7 +829,6 @@ const reviewPage = {
     type: "review",
     content: {
         title: "Review Your Selections",
-        subtitle: "Check your selections before submitting your ballot"
     }
 };
 
@@ -832,39 +859,42 @@ allPages.push(reviewPage, confirmationPage);
 		}
 
 		function updateReviewPage() {
-	const reviewList = document.getElementById('reviewList');
-	if (!reviewList) return;
+    const reviewList = document.getElementById('reviewList');
+    if (!reviewList) return;
 
-	reviewList.innerHTML = '';
-	const contestCount = questions.length;
-	const selectedCount = Object.keys(selections).length;
+    reviewList.innerHTML = '';
+    const contestCount = questions.length;
+    const selectedCount = Object.keys(selections).length;
+    const remainingCount = contestCount - selectedCount;
 
-	reviewList.innerHTML = `
-		<div class="review-summary">
-			<p>You have made selections for ${selectedCount} out of ${contestCount} contests</p>
-		</div>
-	`;
+    reviewList.innerHTML = `
+        <div class="review-summary">
+            ${remainingCount > 0 ? 
+                `${remainingCount} ${remainingCount === 1 ? 'contest' : 'contests'} with selection not made` : 
+                'All selections complete'}
+        </div>
+    `;
 
-	Object.values(selections)
-		.sort((a, b) => a.contestNumber - b.contestNumber)
-		.forEach(selection => {
-			const reviewItem = document.createElement('div');
-			reviewItem.className = 'review-item';
-			reviewItem.innerHTML = `
-				<div class="review-contest">
-					<div class="review-contest-header">
-						<span class="review-contest-number">Contest ${selection.contestNumber}</span>
-						<span class="review-category">${selection.category}</span>
-					</div>
-					<div class="review-title">${selection.title}</div>
-					<div class="review-selection">${selection.selection}</div>
-				</div>
-				<button class="change-selection-button" onclick="goToContest(${selection.pageIndex})">
-					Change
-				</button>
-			`;
-			reviewList.appendChild(reviewItem);
-		});
+    Object.values(selections)
+        .sort((a, b) => a.contestNumber - b.contestNumber)
+        .forEach(selection => {
+            const reviewItem = document.createElement('div');
+            reviewItem.className = 'review-item';
+            reviewItem.innerHTML = `
+                <div class="review-contest">
+                    <div class="review-contest-header">
+                        <span class="review-contest-number">Contest ${selection.contestNumber}</span>
+                        <span class="review-category">${selection.category}</span>
+                    </div>
+                    <div class="review-title">${selection.title}</div>
+                    <div class="review-selection">${selection.selection}</div>
+                </div>
+                <button class="change-selection-button" onclick="goToContest(${selection.pageIndex})">
+                    Change
+                </button>
+            `;
+            reviewList.appendChild(reviewItem);
+        });
 }
 
 // Function to navigate to a specific contest
@@ -1018,34 +1048,6 @@ function cancelWriteIn(pageIndex) {
     writeInOption.classList.remove('active', 'selected');
     pageContainer.querySelector('.write-in-name').value = '';
     pageContainer.querySelector('.write-in-description').value = '';
-}
-
-function submitWriteIn(event, pageIndex) {
-    event.preventDefault();
-    const pageContainer = document.querySelectorAll('.page-container')[pageIndex];
-    const writeInOption = pageContainer.querySelector('.write-in-option');
-    const writeInForm = pageContainer.querySelector('.write-in-form');
-    const nameInput = pageContainer.querySelector('.write-in-name');
-    const descriptionInput = pageContainer.querySelector('.write-in-description');
-    const page = allPages[pageIndex];
-    
-    const name = nameInput.value.trim();
-    const description = descriptionInput.value.trim();
-    
-    if (name) {
-        selections[pageIndex] = {
-            contestNumber: pageIndex - welcomeSequence.length,
-            category: page.category,
-            title: page.title,
-            selection: name,
-            description: description,
-            isWriteIn: true,
-            pageIndex: pageIndex
-        };
-        writeInForm.style.display = 'none';
-        writeInOption.classList.add('selected');
-        writeInOption.classList.remove('active');
-    }
 }
 
 		// Initialize pages
