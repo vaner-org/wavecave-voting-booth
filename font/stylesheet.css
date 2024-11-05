@@ -1,0 +1,168 @@
+@font-face {
+    font-family: 'Ambiguity Thrift';
+    src: url('AmbiguityThrift-ThinItalic.eot');
+    src: local('Ambiguity Thrift Thin Italic'), local('AmbiguityThrift-ThinItalic'),
+        url('AmbiguityThrift-ThinItalic.eot?#iefix') format('embedded-opentype'),
+        url('AmbiguityThrift-ThinItalic.woff2') format('woff2'),
+        url('AmbiguityThrift-ThinItalic.woff') format('woff'),
+        url('AmbiguityThrift-ThinItalic.ttf') format('truetype');
+    font-weight: 100;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Ambiguity Thrift';
+    src: url('AmbiguityThrift-Regular.eot');
+    src: local('Ambiguity Thrift'), local('AmbiguityThrift-Regular'),
+        url('AmbiguityThrift-Regular.eot?#iefix') format('embedded-opentype'),
+        url('AmbiguityThrift-Regular.woff2') format('woff2'),
+        url('AmbiguityThrift-Regular.woff') format('woff'),
+        url('AmbiguityThrift-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Ambiguity Thrift';
+    src: url('AmbiguityThrift-SemiBold.eot');
+    src: local('Ambiguity Thrift SemiBold'), local('AmbiguityThrift-SemiBold'),
+        url('AmbiguityThrift-SemiBold.eot?#iefix') format('embedded-opentype'),
+        url('AmbiguityThrift-SemiBold.woff2') format('woff2'),
+        url('AmbiguityThrift-SemiBold.woff') format('woff'),
+        url('AmbiguityThrift-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Ambiguity Thrift Inline';
+    src: url('AmbiguityThrift-Inline.eot');
+    src: local('Ambiguity Thrift Inline'), local('AmbiguityThrift-Inline'),
+        url('AmbiguityThrift-Inline.eot?#iefix') format('embedded-opentype'),
+        url('AmbiguityThrift-Inline.woff2') format('woff2'),
+        url('AmbiguityThrift-Inline.woff') format('woff'),
+        url('AmbiguityThrift-Inline.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Ambiguity Thrift';
+    src: url('AmbiguityThrift-SemiBoldItalic.eot');
+    src: local('Ambiguity Thrift SemiBold Italic'), local('AmbiguityThrift-SemiBoldItalic'),
+        url('AmbiguityThrift-SemiBoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('AmbiguityThrift-SemiBoldItalic.woff2') format('woff2'),
+        url('AmbiguityThrift-SemiBoldItalic.woff') format('woff'),
+        url('AmbiguityThrift-SemiBoldItalic.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Ambiguity Thrift';
+    src: url('AmbiguityThrift-Bold.eot');
+    src: local('Ambiguity Thrift Bold'), local('AmbiguityThrift-Bold'),
+        url('AmbiguityThrift-Bold.eot?#iefix') format('embedded-opentype'),
+        url('AmbiguityThrift-Bold.woff2') format('woff2'),
+        url('AmbiguityThrift-Bold.woff') format('woff'),
+        url('AmbiguityThrift-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Ambiguity Thrift Rounded';
+    src: url('AmbiguityThrift-Rounded.eot');
+    src: local('Ambiguity Thrift Rounded'), local('AmbiguityThrift-Rounded'),
+        url('AmbiguityThrift-Rounded.eot?#iefix') format('embedded-opentype'),
+        url('AmbiguityThrift-Rounded.woff2') format('woff2'),
+        url('AmbiguityThrift-Rounded.woff') format('woff'),
+        url('AmbiguityThrift-Rounded.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Ambiguity Thrift';
+    src: url('AmbiguityThrift-Italic.eot');
+    src: local('Ambiguity Thrift Italic'), local('AmbiguityThrift-Italic'),
+        url('AmbiguityThrift-Italic.eot?#iefix') format('embedded-opentype'),
+        url('AmbiguityThrift-Italic.woff2') format('woff2'),
+        url('AmbiguityThrift-Italic.woff') format('woff'),
+        url('AmbiguityThrift-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Ambiguity Thrift';
+    src: url('AmbiguityThrift-LightItalic.eot');
+    src: local('Ambiguity Thrift Light Italic'), local('AmbiguityThrift-LightItalic'),
+        url('AmbiguityThrift-LightItalic.eot?#iefix') format('embedded-opentype'),
+        url('AmbiguityThrift-LightItalic.woff2') format('woff2'),
+        url('AmbiguityThrift-LightItalic.woff') format('woff'),
+        url('AmbiguityThrift-LightItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Ambiguity Thrift';
+    src: url('AmbiguityThrift-BoldItalic.eot');
+    src: local('Ambiguity Thrift Bold Italic'), local('AmbiguityThrift-BoldItalic'),
+        url('AmbiguityThrift-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('AmbiguityThrift-BoldItalic.woff2') format('woff2'),
+        url('AmbiguityThrift-BoldItalic.woff') format('woff'),
+        url('AmbiguityThrift-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Ambiguity Thrift';
+    src: url('AmbiguityThrift-Light.eot');
+    src: local('Ambiguity Thrift Light'), local('AmbiguityThrift-Light'),
+        url('AmbiguityThrift-Light.eot?#iefix') format('embedded-opentype'),
+        url('AmbiguityThrift-Light.woff2') format('woff2'),
+        url('AmbiguityThrift-Light.woff') format('woff'),
+        url('AmbiguityThrift-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Ambiguity Thrift';
+    src: url('AmbiguityThrift-BlackItalic.eot');
+    src: local('Ambiguity Thrift Black Italic'), local('AmbiguityThrift-BlackItalic'),
+        url('AmbiguityThrift-BlackItalic.eot?#iefix') format('embedded-opentype'),
+        url('AmbiguityThrift-BlackItalic.woff2') format('woff2'),
+        url('AmbiguityThrift-BlackItalic.woff') format('woff'),
+        url('AmbiguityThrift-BlackItalic.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Ambiguity Thrift';
+    src: url('AmbiguityThrift-Thin.eot');
+    src: local('Ambiguity Thrift Thin'), local('AmbiguityThrift-Thin'),
+        url('AmbiguityThrift-Thin.eot?#iefix') format('embedded-opentype'),
+        url('AmbiguityThrift-Thin.woff2') format('woff2'),
+        url('AmbiguityThrift-Thin.woff') format('woff'),
+        url('AmbiguityThrift-Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Ambiguity Thrift';
+    src: url('AmbiguityThrift-Black.eot');
+    src: local('Ambiguity Thrift Black'), local('AmbiguityThrift-Black'),
+        url('AmbiguityThrift-Black.eot?#iefix') format('embedded-opentype'),
+        url('AmbiguityThrift-Black.woff2') format('woff2'),
+        url('AmbiguityThrift-Black.woff') format('woff'),
+        url('AmbiguityThrift-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
