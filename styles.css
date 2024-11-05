@@ -36,26 +36,32 @@ body {
 
 		/* Welcome page styles */
 		.welcome-page {
-			background: #1338BE;
-			color: white;
-			text-align: center;
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			justify-content: space-between;
-			padding: 2rem;
-			height: 100vh;
-		}
+    background: linear-gradient(rgba(19, 56, 190, 0.8), rgba(19, 56, 190, 0.8)), url('flag.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem;
+    height: 100vh;
+    position: relative;
+}
 
-		.welcome-content {
-			flex-grow: 1;
-			display: flex;
-			flex-direction: column;
-			justify-content: space-around;
-			align-items: center;
-			width: 100%;
-			max-width: 600px;
-		}
+		/* Ensure the container is properly centered */
+.welcome-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+}
 
 		.welcome-header {
 			text-align: center;
@@ -78,14 +84,29 @@ body {
 		}
 
 		.start-circle {
-			width: 80px;
-			height: 80px;
-			border-radius: 50%;
-			border: 3px solid white;
-			background: transparent;
-			cursor: pointer;
-			margin: 2rem 0;
-		}
+    width: 60px;       /* Reduced from 80px */
+    height: 60px;      /* Reduced from 80px */
+    border-radius: 50%;
+    border: 3px solid white;
+    background: transparent;
+    cursor: pointer;
+    margin: 2rem auto;  /* Added auto horizontal margin to ensure centering */
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.start-circle::after {
+    content: '';
+    width: 45px;       /* Increased from 40px to be closer to outer circle */
+    height: 45px;      /* Increased from 40px to be closer to outer circle */
+    border-radius: 50%;
+    background: white;
+    position: absolute;
+}
+
+
 
 		.headphones-icon {
 			font-size: 2rem;

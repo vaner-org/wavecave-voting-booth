@@ -116,6 +116,23 @@
 				]
 			},  
 			{
+				type: "measure",
+				category: "CITY/LOCAL",
+				title: "FIRE PROTECTION SPECIAL TAX MEASURE ELECTION - MEASURE E",
+				voteFor: "Vote for YES or NO",
+				measureText: "<strong>CONSOLIDATED FIRE PROTECTION DISTRICT OF LOS ANGELES COUNTY EMERGENCY RESPONSE AND INFRASTRUCTURE ORDINANCE.</strong> Shall an ordinance ensuring local firefighter/paramedic emergency response, involving wildfires, house fires, heart attacks, strokes, and car accidents; to hire/train firefighters/paramedics, upgrade/replace aging firefighter safety equipment, fire engines, helicopters, facilities, life-saving rescue tools, and 911 communications technology; by levying 6 cents per square foot of certain parcel improvements, providing $152 million annually, limited to 2% annual adjustment, until ended by voters, exempting low-income seniors, with independent citizens oversight, be adopted? <strong>Supporters:</strong> Firefighter Alexis Kendricks; AirOps Paramedic Johnny Gray; Assembly Mbr. Freddie Rodriguez; Firefighters IAFF Local 1014 <strong>Opponents:</strong> Howard Jarvis Taxpayers Association; Mike Antonovich, L.A. County Supervisor (ret.); Jack Humphreville",
+				options: [
+					{
+						name: "YES on Measure E",
+						description: ""
+					},
+					{
+						name: "NO on Measure E",
+						description: ""
+					}
+				]
+			},
+			{
 				type: "candidate",
 				category: "COUNTY",
 				title: "DISTRICT ATTORNEY",
@@ -214,91 +231,6 @@
 					},
 				]
 			}, 
-
-						{
-		type: "candidate",
-		category: "NATIONAL ELECTION",
-		title: "PRESIDENT AND VICE PRESIDENT",
-		voteFor: "Vote for ONE",
-		options: [
-			{
-				name: "ROBERT F. KENNEDY JR. / NICOLE SHANAHAN",
-				description: "For President / For Vice President (American Independent)"
-			},
-			{
-				name: "CHASE OLIVER / MIKE TER MAAT",
-				description: "For President / For Vice President (Libertarian)"
-			},
-			{
-				name: "JILL STEIN / RUDOLPH WARE",
-				description: "For President / For Vice President (Green)"
-			},
-			{
-				name: "DONALD J. TRUMP / JD VANCE",
-				description: "For President / For Vice President (Republican)"
-			},
-			{
-				name: "CLAUDIA DE LA CRUZ / KARINA GARCIA",
-				description: "For President / For Vice President (Peace and Freedom)"
-			},
-			{
-				name: "KAMALA D. HARRIS / TIM WALZ",
-				description: "For President / For Vice President (Democratic)"
-			}
-		]
-	},
-
-			{
-				type: "candidate",
-				category: "NATIONAL ELECTION",
-				title: "UNITED STATES SENATOR - Full Term",
-				voteFor: "Vote for ONE",
-				options: [
-					{
-						name: "ADAM B. SCHIFF",
-						description: "Party Preference: Democratic\nUnited States Representative"
-					},
-					{
-						name: "STEVE GARVEY",
-						description: "Party Preference: Republican\nProfessional Baseball Representative"
-					},
-				]
-			}, 
-
-			{
-				type: "candidate",
-				category: "NATIONAL ELECTION",
-				title: "UNITED STATES SENATOR - Short Term (Unexpired term ending January 3, 2025)",
-				voteFor: "Vote for ONE",
-				options: [
-					{
-						name: "ADAM B. SCHIFF",
-						description: "Party Preference: Democratic\nUnited States Representative"
-					},
-					{
-						name: "STEVE GARVEY",
-						description: "Party Preference: Republican\nProfessional Baseball Representative"
-					},
-				]
-			}, 
-			{
-				type: "measure",
-				category: "CITY/LOCAL",
-				title: "FIRE PROTECTION SPECIAL TAX MEASURE ELECTION - MEASURE E",
-				voteFor: "Vote for YES or NO",
-				measureText: "<strong>CONSOLIDATED FIRE PROTECTION DISTRICT OF LOS ANGELES COUNTY EMERGENCY RESPONSE AND INFRASTRUCTURE ORDINANCE.</strong> Shall an ordinance ensuring local firefighter/paramedic emergency response, involving wildfires, house fires, heart attacks, strokes, and car accidents; to hire/train firefighters/paramedics, upgrade/replace aging firefighter safety equipment, fire engines, helicopters, facilities, life-saving rescue tools, and 911 communications technology; by levying 6 cents per square foot of certain parcel improvements, providing $152 million annually, limited to 2% annual adjustment, until ended by voters, exempting low-income seniors, with independent citizens oversight, be adopted? <strong>Supporters:</strong> Firefighter Alexis Kendricks; AirOps Paramedic Johnny Gray; Assembly Mbr. Freddie Rodriguez; Firefighters IAFF Local 1014 <strong>Opponents:</strong> Howard Jarvis Taxpayers Association; Mike Antonovich, L.A. County Supervisor (ret.); Jack Humphreville",
-				options: [
-					{
-						name: "YES on Measure E",
-						description: ""
-					},
-					{
-						name: "NO on Measure E",
-						description: ""
-					}
-				]
-			},
-
 			{
 				type: "measure",
 				category: "COUNTY",
@@ -514,6 +446,73 @@
 					}
 				]
 			},
+						{
+		type: "candidate",
+		category: "NATIONAL ELECTION",
+		title: "PRESIDENT AND VICE PRESIDENT",
+		voteFor: "Vote for ONE",
+		options: [
+			{
+				name: "ROBERT F. KENNEDY JR. / NICOLE SHANAHAN",
+				description: "For President / For Vice President (American Independent)"
+			},
+			{
+				name: "CHASE OLIVER / MIKE TER MAAT",
+				description: "For President / For Vice President (Libertarian)"
+			},
+			{
+				name: "JILL STEIN / RUDOLPH WARE",
+				description: "For President / For Vice President (Green)"
+			},
+			{
+				name: "DONALD J. TRUMP / JD VANCE",
+				description: "For President / For Vice President (Republican)"
+			},
+			{
+				name: "CLAUDIA DE LA CRUZ / KARINA GARCIA",
+				description: "For President / For Vice President (Peace and Freedom)"
+			},
+			{
+				name: "KAMALA D. HARRIS / TIM WALZ",
+				description: "For President / For Vice President (Democratic)"
+			}
+		]
+	},
+
+			{
+				type: "candidate",
+				category: "NATIONAL ELECTION",
+				title: "UNITED STATES SENATOR - Full Term",
+				voteFor: "Vote for ONE",
+				options: [
+					{
+						name: "ADAM B. SCHIFF",
+						description: "Party Preference: Democratic\nUnited States Representative"
+					},
+					{
+						name: "STEVE GARVEY",
+						description: "Party Preference: Republican\nProfessional Baseball Representative"
+					},
+				]
+			}, 
+
+			{
+				type: "candidate",
+				category: "NATIONAL ELECTION",
+				title: "UNITED STATES SENATOR - Short Term (Unexpired term ending January 3, 2025)",
+				voteFor: "Vote for ONE",
+				options: [
+					{
+						name: "ADAM B. SCHIFF",
+						description: "Party Preference: Democratic\nUnited States Representative"
+					},
+					{
+						name: "STEVE GARVEY",
+						description: "Party Preference: Republican\nProfessional Baseball Representative"
+					},
+				]
+			}, 
+			
 
 		];
 
@@ -749,7 +748,7 @@ case "measure":
                     <div class="options">
                         <button class="start-button-container" onclick="submitBallot()">
                             <span>${page.content.buttonText}</span>
-                            <img src="./tap.svg" alt="Touch icon">
+                            <img src="./print.svg" alt="Print icon">
                         </button>
                     </div>
                 </div>
