@@ -703,6 +703,7 @@
                     div.querySelector('.write-in-description').value = '';
                 });
 
+                // Here's where we fix the write-in submission
                 writeInSubmit.addEventListener('submit', (e) => {
                     e.preventDefault();
                     const name = div.querySelector('.write-in-name').value.trim();
@@ -710,7 +711,7 @@
                     
                     if (name) {
                         selections[index] = {
-                            contestNumber: index - welcomeSequence.length,
+                            contestNumber: getContestNumber(index),  // Using the same helper function
                             category: page.category,
                             title: page.title,
                             selection: name,
@@ -770,7 +771,12 @@
     return div;
 }
 
-		function selectOption(pageIndex, optionIndex) {
+		// Helper function to calculate contest number consistently
+function getContestNumber(pageIndex) {
+    return pageIndex - welcomeSequence.length + 1;
+}
+
+function selectOption(pageIndex, optionIndex) {
     const pageContainer = document.querySelectorAll('.page-container')[pageIndex];
     const options = pageContainer.querySelectorAll('.option-button');
     const writeInOption = pageContainer.querySelector('.write-in-option');
@@ -788,7 +794,7 @@
             option.classList.toggle('selected');
             if (option.classList.contains('selected')) {
                 selections[pageIndex] = {
-                    contestNumber: pageIndex - welcomeSequence.length + 1,
+                    contestNumber: getContestNumber(pageIndex),
                     category: page.category,
                     title: page.title,
                     selection: page.options[optionIndex].name,
@@ -840,38 +846,6 @@ function cancelWriteIn(pageIndex) {
     if (nameInput) nameInput.value = '';
     if (descriptionInput) descriptionInput.value = '';
     delete selections[pageIndex];
-}
-
-function submitWriteIn(event, pageIndex) {
-    event.preventDefault();
-    const pageContainer = document.querySelectorAll('.page-container')[pageIndex];
-    const writeInOption = pageContainer.querySelector('.write-in-option');
-    const writeInForm = pageContainer.querySelector('.write-in-form');
-    const nameInput = writeInForm.querySelector('.write-in-name');
-    const descriptionInput = writeInForm.querySelector('.write-in-description');
-    const page = allPages[pageIndex];
-    
-    const name = nameInput.value.trim();
-    const description = descriptionInput.value.trim();
-    
-    if (name) {
-        selections[pageIndex] = {
-            contestNumber: pageIndex - welcomeSequence.length + 1,
-            category: page.category,
-            title: page.title,
-            selection: name,
-            description: description,
-            isWriteIn: true,
-            pageIndex: pageIndex
-        };
-        writeInForm.style.display = 'none';
-        writeInOption.classList.add('selected');
-        writeInOption.classList.remove('active');
-        
-        // Reset form fields
-        nameInput.value = '';
-        descriptionInput.value = '';
-    }
 }
 
 // Modified reviewPage definition to change the Print button to Next
