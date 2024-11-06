@@ -1050,6 +1050,52 @@ function updateBallotSummary() {
     });
 }
 
+// Define a function to reset all application state
+function resetApplication() {
+    // Reset all state variables
+    currentPage = 0;
+    hasVisitedReviewPage = false;
+    Object.keys(selections).forEach(key => delete selections[key]);
+    
+    // Remove all existing pages
+    const container = document.getElementById('pagesContainer');
+    container.innerHTML = '';
+    
+    // Hide ballot summary if visible
+    const ballotSummary = document.querySelector('.ballot-summary-page');
+    if (ballotSummary) {
+        ballotSummary.style.display = 'none';
+    }
+    
+    // Recreate all pages with fresh state
+    allPages.forEach((page, index) => {
+        container.appendChild(createPageElement(page, index));
+    });
+    
+    // Show first page
+    const firstPage = document.querySelector('.page-container');
+    if (firstPage) {
+        firstPage.classList.add('active');
+    }
+    
+    // Reset all form fields
+    const inputs = document.querySelectorAll('input');
+    inputs.forEach(input => input.value = '');
+    
+    // Remove all selected states from options
+    const options = document.querySelectorAll('.option-button, .write-in-option');
+    options.forEach(option => {
+        option.classList.remove('selected', 'active');
+    });
+    
+    // Hide all write-in forms
+    const writeinForms = document.querySelectorAll('.write-in-form');
+    writeinForms.forEach(form => {
+        form.style.display = 'none';
+    });
+}
+
+// Update the submitBallot function to use resetApplication instead of page refresh
 function submitBallot() {
     // Hide the confirmation page
     document.querySelector('.print-confirmation-page').style.display = 'none';
@@ -1067,14 +1113,14 @@ function submitBallot() {
     // Trigger print
     window.print();
     
-    // After print dialog closes, reload the page
+    // After print dialog closes, reset the application
     window.addEventListener('afterprint', () => {
-        window.location.reload();
+        resetApplication();
     }, { once: true });
     
     // Fallback: use setTimeout in case afterprint event isn't supported
     setTimeout(() => {
-        window.location.reload();
+        resetApplication();
     }, 1000);
 }
 
