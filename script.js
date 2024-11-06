@@ -809,6 +809,13 @@ function selectOption(pageIndex, optionIndex) {
     });
 }
 
+// Add fullscreen function at the top
+function enterFullscreen() {
+    document.querySelector("body").requestFullscreen().catch(err => {
+        console.log("Error attempting to enable fullscreen:", err.message);
+    });
+}
+
 // Add these new functions for write-in handling
 function toggleWriteIn(pageIndex) {
     const pageContainer = document.querySelectorAll('.page-container')[pageIndex];
@@ -1024,7 +1031,7 @@ function updateBallotSummary() {
     });
 }
 
-// Define a function to reset all application state
+// Modify resetApplication to include fullscreen
 function resetApplication() {
     // Reset all state variables
     currentPage = 0;
@@ -1067,6 +1074,9 @@ function resetApplication() {
     writeinForms.forEach(form => {
         form.style.display = 'none';
     });
+
+    // Request fullscreen
+    enterFullscreen();
 }
 
 // Update the submitBallot function to use resetApplication instead of page refresh
